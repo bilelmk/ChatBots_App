@@ -1,0 +1,38 @@
+.id1 {
+  height: 970px;
+  background-image: url( "../../assets/img/bg.jpg" );
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 90px;
+
+}
+
+.register{
+  color: white;
+  size: A3;
+
+}
+
+.form{
+  background-color: rgba(246,246,246,0.9);
+}
+
+.title{
+  text-align :  center;
+  margin: 0px;
+  padding: 20px;
+  background-color: #083358;
+  color : #f6f6f6 ;
+}
+ .btnn{
+   height: 50px;
+    border: none;
+   background-color: #083358;
+   color: #f6f6f6 ;
+ }
+ .btnn:hover{
+   height: 50px;
+   background-color:#f6f6f6 ;
+   color:  #083358 ;
+   font-weight: 500;
+ }

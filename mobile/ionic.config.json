@@ -1,0 +1,7 @@
+{
+  "name": "bank.tn Mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

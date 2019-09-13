@@ -1,0 +1,86 @@
+<div class="col-12 p-0 mb-5 " >
+  <h3 class="model-titre">Ajouter Un Profil</h3>
+</div>
+<form (ngSubmit)="ajouter(form)" #form="ngForm">
+  <div class="row mt-4" >
+
+    <div class="form-group col-md-12 noMargin-noPadding" >
+      <mat-form-field appearance="outline"  class="noMargin-noPadding">
+        <mat-label>Nom Du Profil</mat-label>
+        <input  ngModel name="nom" matInput placeholder="Nom Du Groupe" type="text" required minlength="2" >
+        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-12 noMargin-noPadding" >
+      <mat-form-field appearance="outline" class="noMargin-noPadding" >
+        <mat-label>Description</mat-label>
+        <textarea ngModel name="description" matInput placeholder="Description" type="text" required minlength="2" >
+        </textarea>
+        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+    <table class="col-12">
+      <tr>
+        <td class="table-title">Permission</td>
+        <td class="table-title">Ajouter</td>
+        <td class="table-title">Modifier</td>
+        <td class="table-title">Supprimer</td>
+        <td class="table-title">Communiquer</td>
+      </tr>
+      <tr>
+        <td class="table-title">Utilisateurs</td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="userAdd" name="userAdd"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="userUp"  name="userUp"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="userDel"  name="userDel"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="userCom"  name="userCom"></mat-checkbox></td>
+      </tr>
+      <tr>
+        <td class="table-title">Profils</td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="profilAdd"  name="profilAdd"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="profilUp"  name="profilUp"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="profilDel"  name="profilDel"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="profilCom"  name="profilCom"></mat-checkbox></td>
+      </tr>
+      <tr>
+        <td class="table-title">Groupes</td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="grpAdd"  name="grpAdd"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="grpUp"  name="grpUp"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="grpDel"  name="grpDel"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="grpCom"  name="grpCom"> </mat-checkbox></td>
+      </tr>
+      <tr>
+        <td class="table-title">ChatBots</td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="botAdd"  name="botAdd"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="botUp"  name="botUp"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="botDel"  name="botDel"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="botCom"  name="botCom"></mat-checkbox></td>
+      </tr>
+      <tr>
+        <td class="table-title">Bases de connaissance</td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="baseAdd"  name="baseAdd"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="baseUp"  name="baseUp"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="baseDel"  name="baseDel"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="baseCom"  name="baseCom"></mat-checkbox></td>
+      </tr>
+
+
+    </table>
+    <div class="col-md-6 noMargin-noPadding">
+      <button style="width: 100%" mat-raised-button class="Btn-blue" type="submit" [disabled]="!form.valid" >Ajouter</button>
+    </div>
+
+  </div>
+
+
+
+
+</form>
+
+
+
+
+
+
+

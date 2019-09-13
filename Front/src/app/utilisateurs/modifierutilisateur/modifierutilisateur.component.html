@@ -1,0 +1,72 @@
+<div class="col-12 p-0 mb-5 " >
+  <h3 class="model-titre">Modifier Les Informations De Cet Utilisateur</h3>
+</div>
+<form (ngSubmit)="modifier()" #form="ngForm">
+  <div class="row mt-4" >
+
+    <div class="form-group col-md-6 noMargin-noPadding" >
+      <mat-form-field appearance="outline" class="noMargin-noPadding" >
+        <mat-label>Nom D'utilisateur</mat-label>
+        <input [(ngModel)]="data.username" name="username" matInput placeholder="username" type="text" required minlength="2" >
+        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group col-md-6 noMargin-noPadding" >
+      <mat-form-field appearance="outline" class="noMargin-noPadding" >
+        <mat-label>Nom</mat-label>
+        <input [(ngModel)]="data.firstName" name="nom" matInput placeholder="nom" type="text" required minlength="2" >
+        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group col-md-6 noMargin-noPadding" >
+      <mat-form-field appearance="outline" class="noMargin-noPadding" >
+        <mat-label>Prénom</mat-label>
+        <input [(ngModel)]="data.lastName" name="prenom" matInput placeholder="prenom" type="text" required minlength="2" >
+        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6 noMargin-noPadding" >
+      <mat-form-field appearance="outline"  class="noMargin-noPadding">
+        <mat-label>Matricule</mat-label>
+        <input  [(ngModel)]="data.matricule" name="matricule" matInput placeholder="Matricule" type="text" required minlength="2" >
+        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-6 noMargin-noPadding" >
+      <mat-form-field appearance="outline"  class="noMargin-noPadding">
+        <mat-label>E-mail</mat-label>
+        <input   [(ngModel)]="data.email" name="email" matInput placeholder="mail" type="email" required minlength="2" >
+        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+
+    <div class=" col-md-12 noMargin-noPadding" >
+      <mat-checkbox style="padding: 15px 35px 15px 35px"  [(ngModel)]="data.isActive" name="isActive"> Actif </mat-checkbox>
+      <mat-checkbox style="padding: 15px 35px 15px 35px"  [(ngModel)]="data.isSuperUser"  name="admin" > Administrateur </mat-checkbox>
+      <mat-checkbox style="padding: 15px 35px 15px 35px"  [(ngModel)]="data.isAdminGroup"name="adminGrp" > Administrateur Du Groupe </mat-checkbox>
+    </div>
+
+    <div class="col-md-6 noMargin-noPadding">
+      <button style="width: 100% ; margin-top: 20px" mat-raised-button class="Btn-blue" type="submit" [disabled]="!form.valid" >Appliquer Les Modifications</button>
+    </div>
+
+  </div>
+
+
+
+
+</form>
+
+
+
+
+
+
+

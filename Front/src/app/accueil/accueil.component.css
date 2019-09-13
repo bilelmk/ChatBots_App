@@ -1,0 +1,7 @@
+.accueil{
+    height: 970px;
+    background-image: url( "../../assets/img/index.png" );
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 90px;
+}

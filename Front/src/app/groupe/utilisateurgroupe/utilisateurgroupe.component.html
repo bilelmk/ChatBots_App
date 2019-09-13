@@ -1,0 +1,76 @@
+
+<div class="col-12 p-0 m-0" style="min-width: 800px ; min-height: 500px" >
+  <div class="col-12 p-0 m-0 " class="bg-orangr">
+    <div class="row">
+      <div class="col-7 pl-2 m-0 "><h3 class="model-titre">Liste des Utilisateurs</h3></div>
+      <div class="col-3 pt-3 m-0 ">
+        <select [(ngModel)]="userToAdd" style="padding-left: 12px">
+          <option [disabled]="true" value="Ajouter Utilisateur">
+            Ajouter Utilisateur
+          </option>
+          <option *ngFor="let user of users" value="{{user.id}}" >
+            {{user.username}}
+          </option>
+        </select>
+      </div>
+      <div class="col-2 pt-3 m-0 ">
+          <button [disabled]="userToAdd === null"  matTooltip="Ajouter Au Groupe" [matTooltipPosition]="'above'"
+                   mat-stroked-button class="add-btn" (click)="add()">
+            <i class="material-icons">
+              add
+            </i>
+          </button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <div *ngIf="!data.users[0]">
+        Pas D'utilisateurs Dans Ce Groupe !!!
+    </div >
+    <div  *ngIf="data.users[0]">
+      <div class="table-responsive">
+        <table  mat-table class="mat-elevation-z8 table-hover table" >
+          <tr class="text-center title" >
+            <td style="padding: 20px"> Nom </td>
+            <td style="padding: 20px"> Prénom </td>
+            <td style="padding: 20px"> E-mail </td>
+            <td style="padding: 20px"> Matricule </td>
+            <td style="padding: 20px"> Username </td>
+            <td style="padding: 20px"> Actions </td>
+          </tr>
+
+          <tr class="text-center" *ngFor="let user of data.users">
+            <td style="padding: 20px" > {{user.matricule}} </td>
+            <td style="padding: 20px"> {{user.firstName}} </td>
+            <td style="padding: 20px" > {{user.lastName}} </td>
+            <td style="padding: 20px"> {{user.email}} </td>
+            <td style="padding: 20px"> {{user.username}} </td>
+
+            <td>
+              <button mat-raised-button
+                         type="button"
+                         matTooltip="Supprimer"
+                         [matTooltipPosition]="'above'"
+                         (click)="supprimer(user.id , data.id)"
+                         class="btn btn-primary btn-link btn btn-just-icon" >
+              <i class="material-icons icon-blue">
+                delete
+              </i>
+            </button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+
+
+

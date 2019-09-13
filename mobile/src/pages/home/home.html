@@ -1,0 +1,65 @@
+<ion-header >
+  <ion-navbar >
+    <ion-row  align-items-center>
+      <ion-col col-2>
+        <button ion-button icon-only menuToggle>
+          <ion-icon class="nav-icon" name="menu"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8>
+        <img src="../../assets/imgs/logoB.png">
+      </ion-col>
+    <ion-col col-2>
+        <button clear ion-button icon-only (click)="logOut()">
+          <ion-icon class="nav-icon" name="power"></ion-icon>
+        </button>
+    </ion-col>
+  </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<div  padding>
+  <ion-grid style="margin-top: 70px">
+    <ion-row>
+      <ion-col col-4 offset-1>
+        <a  [navPush]="Utilisateur">
+          <img src="../../assets/imgs/consultation.png">
+        </a>
+        <p class="menu-text" text-center>Utilisateurs</p>
+      </ion-col>
+      <ion-col  col-4 offset-2>
+        <a  [navPush]="Profil">
+          <img src="../../assets/imgs/mp.png">
+        </a>
+        <p class="menu-text" text-center>Profils</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col  col-4 offset-1>
+        <a  [navPush]="Groupe">
+          <img src="../../assets/imgs/contact.png">
+        </a>
+        <p class="menu-text" text-center>Groupes</p>
+      </ion-col>
+      <ion-col  col-4 offset-2>
+        <a  [navPush]="ChatBot">
+          <img src="../../assets/imgs/budget.png">
+        </a>
+        <p class="menu-text" text-center>ChatBots</p>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4 offset-4>
+        <a [navPush]="Base">
+          <img src="../../assets/imgs/parametre.png">
+        </a>
+        <p class="menu-text" text-center>Bases de connaissance</p>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</div>

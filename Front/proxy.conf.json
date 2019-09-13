@@ -1,0 +1,25 @@
+{
+  "/user": {
+    "target": "http://localhost:8181",
+    "changeOrigin": false,
+    "secure": true,
+    "logLevel": "debug"
+  },
+
+  "/group": {
+    "target": "http://localhost:8181",
+    "changeOrigin": false,
+    "secure": true,
+    "logLevel": "debug"
+  },
+
+  "/profil": {
+    "target": "http://localhost:8181",
+    "changeOrigin": false,
+    "secure": true,
+    "logLevel": "debug"
+  }
+
+}
+
+

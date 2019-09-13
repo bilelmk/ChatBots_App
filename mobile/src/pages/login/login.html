@@ -1,0 +1,39 @@
+
+<div padding>
+  <ion-grid class="logo">
+    <ion-row>
+      <img style="height: 170px" src="../../assets/imgs/login.png" />
+    </ion-row>
+  </ion-grid>
+
+    <form #form="ngForm" (ngSubmit)="logForm(form)" >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5>
+            <label  class="login-label">Numéro client</label>
+          </ion-col>
+          <ion-col col-12>
+            <input color="three" class="login-input" name="login" ngModel type="text" required  />
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="margin-bottom: 10px" >
+          <ion-col col-5>
+            <label  class="login-label">Mot de passe</label>
+          </ion-col>
+          <ion-col col-12>
+            <input color="three" class="login-input" name="pass" ngModel type="password"  required />
+          </ion-col>
+        </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <button [disabled]="!form.valid" class="login-btn" color="three" block  ion-button type="submit">Connexion</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    </form>
+
+
+</div>
