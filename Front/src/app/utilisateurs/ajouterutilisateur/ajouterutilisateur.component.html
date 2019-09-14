@@ -63,9 +63,20 @@
               {{groupe.name}}
             </mat-option>
           </mat-select>
-        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
       </mat-form-field>
     </div>
+
+    <div class="form-group col-md-6 noMargin-noPadding" >
+      <mat-form-field appearance="outline"  class="noMargin-noPadding">
+        <mat-label>Profil</mat-label>
+        <mat-select ngModel name="profil">
+          <mat-option *ngFor="let p of profils" [value]="p" >
+            {{p.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
 
     <div class=" col-md-12 noMargin-noPadding" >
         <mat-checkbox style="padding: 15px 35px 15px 35px"  ngModel name="isActive"> Actif </mat-checkbox>

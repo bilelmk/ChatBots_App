@@ -18,6 +18,13 @@
     "changeOrigin": false,
     "secure": true,
     "logLevel": "debug"
+  },
+
+  "/chatbot": {
+    "target": "http://localhost:8181",
+    "changeOrigin": false,
+    "secure": true,
+    "logLevel": "debug"
   }
 
 }

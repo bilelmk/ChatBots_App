@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/utilisateurs', title: 'Utilisateurs',  icon:'person', class: '' },
     { path: '/profils', title: 'Profils',  icon:'verified_user', class: '' },
     { path: '/groupe', title: 'Groupes',  icon:'supervisor_account', class: '' },
-    { path: '/icons', title: 'ChatBots',  icon:'adb', class: '' },
+    { path: '/chatbot', title: 'ChatBots',  icon:'adb', class: '' },
     { path: '/d', title: 'Base De Connaissance',  icon:'message', class: '' },
 
 ];

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AjouterutilisateurComponent } from './ajouterutilisateur.component';
 
-describe('AjouterprofilComponent', () => {
+describe('AjouterchatbotComponent', () => {
   let component: AjouterutilisateurComponent;
   let fixture: ComponentFixture<AjouterutilisateurComponent>;
 

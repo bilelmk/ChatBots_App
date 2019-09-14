@@ -1,32 +1,31 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Profil} from '../../classes/profil';
-import {ProfilService} from '../../services/profil.service';
+import {ChatbotsService} from '../../services/chatbots.service';
+
 declare var $: any;
 
 @Component({
-  selector: 'app-modifieremp',
-  templateUrl: './modifierprofil.component.html',
-  styleUrls: ['./modifierprofil.component.scss']
+  selector: 'app-supprimeremp',
+  templateUrl: './supprimerchatbot.component.html',
+  styleUrls: ['./supprimerchatbot.component.scss']
 })
-export class ModifierprofilComponent implements OnInit {
+export class SupprimerchatbotComponent implements OnInit {
 
-
-  constructor(public dialogRef: MatDialogRef<ModifierprofilComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Profil,
-              profilseroive : ProfilService
-  ) { }
+  constructor(public dialogRef: MatDialogRef<SupprimerchatbotComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: number ,
+              private chatbotservice : ChatbotsService) { }
 
   ngOnInit() {
-    console.log(this.data)
+
   }
 
-  modifier(){
+  supprimer(){
+    this.chatbotservice.DeleteChatbots(this.data).subscribe(
+        (res) => console.log(res)
+    ) ;
+    this.dialogRef.close();
+
   }
-
-
-
-
 
 
   showNotification(color,msg,icon){

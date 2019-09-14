@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModifiergroupeComponent } from './modifiergroupe.component';
+import { SupprimerchatbotComponent } from './supprimerchatbot.component';
 
-describe('ModifierchatbotComponent', () => {
-  let component: ModifiergroupeComponent;
-  let fixture: ComponentFixture<ModifiergroupeComponent>;
+describe('SupprimerchatbotComponent', () => {
+  let component: SupprimerchatbotComponent;
+  let fixture: ComponentFixture<SupprimerchatbotComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModifiergroupeComponent ]
+      declarations: [ SupprimerchatbotComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModifiergroupeComponent);
+    fixture = TestBed.createComponent(SupprimerchatbotComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

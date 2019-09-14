@@ -57,6 +57,12 @@
                                 </ng-container>
 
                                 <!-- Symbol Column -->
+                                <ng-container matColumnDef="profil">
+                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Profil</th>
+                                    <td  mat-cell *matCellDef="let element"> {{element.profil  ? element.profil.name : 'Pas de profil '}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
                                 <ng-container matColumnDef="isSuperUser">
                                     <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Admin</th>
                                     <td  mat-cell *matCellDef="let element"> {{element.isSuperUser}} </td>

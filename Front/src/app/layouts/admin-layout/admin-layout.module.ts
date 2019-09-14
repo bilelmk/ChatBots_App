@@ -7,7 +7,7 @@ import { AccueilComponent } from '../../accueil/accueil.component';
 import { UtilisateursComponent } from '../../utilisateurs/utilisateurs.component';
 import { ProfilsComponent } from '../../profils/profils.component';
 import { GroupeComponent } from '../../groupe/groupe.component';
-import { IconsComponent } from '../../icons/icons.component';
+import { ChatbotComponent } from '../../chatbot/chatbot.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
@@ -61,7 +61,7 @@ import {
     UtilisateursComponent,
     ProfilsComponent,
     GroupeComponent,
-    IconsComponent,
+    ChatbotComponent,
     NotificationsComponent,
     UpgradeComponent,
 

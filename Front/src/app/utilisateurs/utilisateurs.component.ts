@@ -18,7 +18,7 @@ export class UtilisateursComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   Utilisateurs: Utilisateur[] = null ;
-  displayedColumns: string[] = ['username','matricule' ,'firstName','lastName','isSuperUser','isActive','isAdminGroup','groupes' ,'action'];
+  displayedColumns: string[] = ['username','matricule' ,'firstName','lastName','profil','isSuperUser','isActive','isAdminGroup','groupes' ,'action'];
 
   dataSource: MatTableDataSource<Utilisateur>;
 

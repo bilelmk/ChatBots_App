@@ -7,7 +7,7 @@
                     <div class="card-header  card-header-danger " style="padding-bottom: 0px">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="card-title" >Gestion Des Groupes</h4>
+                                <h4 class="card-title" >Gestion Des Chatbots</h4>
                             </div>
                             <div class="col-4 row">
                                 <div class="col-2" style="margin-right:-27px">
@@ -19,7 +19,7 @@
                                     <input class="find" (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
                                 </div>
                                 <div class="col-1">
-                                    <button  matTooltip="Ajouter Profil" [matTooltipPosition]="'above'"
+                                    <button  matTooltip="Ajouter Chatbot" [matTooltipPosition]="'above'"
                                              mat-stroked-button class="add-btn" (click)="openAddDialog()">
                                         <i class="material-icons">
                                             add
@@ -36,7 +36,7 @@
                                 <!--isActive  isAdminGroup  groupes-->
 
                                 <ng-container matColumnDef="name">
-                                    <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Nom du Profil</th>
+                                    <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Nom du Chatbot</th>
                                     <td  mat-cell *matCellDef="let element"> {{element.name}} </td>
                                 </ng-container>
 

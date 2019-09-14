@@ -27,6 +27,9 @@ import {UtilisateurgroupeComponent} from './groupe/utilisateurgroupe/utilisateur
 import {ModifierprofilComponent} from './profils/modifierprofil/modifierprofil.component';
 import {AjouterprofilComponent} from './profils/ajouterprofil/ajouterprofil.component';
 import {SupprimerprofilComponent} from './profils/supprimerprofil/supprimerprofil.component';
+import {AjouterchatbotComponent} from './chatbot/ajouterchatbot/ajouterchatbot.component';
+import {ModifierchatbotComponent} from './chatbot/modifierchatbot/modifierchatbot.component';
+import {SupprimerchatbotComponent} from './chatbot/supprimerchatbot/supprimerchatbot.component';
 
 @NgModule({
   imports: [
@@ -48,7 +51,8 @@ import {SupprimerprofilComponent} from './profils/supprimerprofil/supprimerprofi
     MatListModule,
     MatRadioModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+
 
 
   ],
@@ -62,7 +66,10 @@ import {SupprimerprofilComponent} from './profils/supprimerprofil/supprimerprofi
     UtilisateurgroupeComponent,
     ModifierprofilComponent,
     AjouterprofilComponent,
-    SupprimerprofilComponent
+    SupprimerprofilComponent,
+    AjouterchatbotComponent,
+    ModifierchatbotComponent,
+    SupprimerchatbotComponent
   ],
   declarations: [
     AppComponent,
@@ -78,7 +85,10 @@ import {SupprimerprofilComponent} from './profils/supprimerprofil/supprimerprofi
     UtilisateurgroupeComponent,
     ModifierprofilComponent,
     AjouterprofilComponent,
-    SupprimerprofilComponent
+    SupprimerprofilComponent,
+    AjouterchatbotComponent,
+    ModifierchatbotComponent,
+    SupprimerchatbotComponent
 
 
   ],

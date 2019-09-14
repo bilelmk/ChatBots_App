@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {GroupeService} from '../../services/groupes.service';
 import {Groupe} from '../../classes/groupe';
+import {Chatbot} from '../../classes/chatbot';
+import {ChatbotsService} from '../../services/chatbots.service';
 declare var $: any;
 
 @Component({
@@ -11,12 +13,16 @@ declare var $: any;
 })
 export class ModifiergroupeComponent implements OnInit {
 
+  chatbots : Chatbot[] ;
 
   constructor(public dialogRef: MatDialogRef<ModifiergroupeComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Groupe,
+              @Inject(MAT_DIALOG_DATA) public data: Groupe, private chatbotsService : ChatbotsService ,
               private groupeService : GroupeService) { }
 
   ngOnInit() {
+    this.chatbotsService.getChatbots().subscribe(
+        (res) => this.chatbots = res
+    )
   }
 
   modifier(){
@@ -43,8 +49,8 @@ export class ModifiergroupeComponent implements OnInit {
         align:'center'
       },
       template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-          '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-          '<i class="material-icons" data-notify="icon">'+icon+'</i> ' +
+          '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-chatbot">close</i></button>' +
+          '<i class="material-chatbot" data-notify="icon">'+icon+'</i> ' +
           '<span data-notify="title">{1}</span> ' +
           '<span data-notify="message">{2}</span>' +
           '<div class="progress" data-notify="progressbar">' +

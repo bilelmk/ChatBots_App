@@ -1,20 +1,21 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Profil} from '../../classes/profil';
-import {ProfilService} from '../../services/profil.service';
+import {ChatbotsService} from '../../services/chatbots.service';
+import {Chatbot} from '../../classes/chatbot';
 declare var $: any;
 
 @Component({
   selector: 'app-modifieremp',
-  templateUrl: './modifierprofil.component.html',
-  styleUrls: ['./modifierprofil.component.scss']
+  templateUrl: './modifierchatbot.component.html',
+  styleUrls: ['./modifierchatbot.component.scss']
 })
-export class ModifierprofilComponent implements OnInit {
+export class ModifierchatbotComponent implements OnInit {
 
 
-  constructor(public dialogRef: MatDialogRef<ModifierprofilComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Profil,
-              profilseroive : ProfilService
+  constructor(public dialogRef: MatDialogRef<ModifierchatbotComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: Chatbot,
+              private chatbotservice : ChatbotsService
   ) { }
 
   ngOnInit() {
@@ -22,6 +23,12 @@ export class ModifierprofilComponent implements OnInit {
   }
 
   modifier(){
+    this.chatbotservice.putChatbots(this.data).subscribe(
+        (res) => {
+          this.dialogRef.close();
+        }
+    );
+
   }
 
 

@@ -14,8 +14,4 @@ export  class  Utilisateur {
     isSuperUser: boolean ;
     isActive: boolean ;
     isAdminGroup: boolean ;
-    isWrite: boolean ;
-    isRead: boolean ;
-    isAdd: boolean ;
-    isDelete: boolean ;
 }

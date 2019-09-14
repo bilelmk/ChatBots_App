@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import {MatDialogRef} from '@angular/material';
 import {Groupe} from '../../classes/groupe';
 import {GroupeService} from '../../services/groupes.service';
+import {ChatbotsService} from '../../services/chatbots.service';
+import {Chatbot} from '../../classes/chatbot';
 
 declare var $: any;
 
@@ -14,17 +16,22 @@ declare var $: any;
 export class AjoutergroupeComponent implements OnInit {
 
   groupe = new Groupe() ;
+  chatbots : Chatbot[] ;
 
-   constructor(private groupeservice : GroupeService ,
+   constructor(private groupeservice : GroupeService , private chatbotsService : ChatbotsService ,
                public dialogRef: MatDialogRef<AjoutergroupeComponent>) { }
 
   ngOnInit() {
-  }
+    this.chatbotsService.getChatbots().subscribe(
+        (res) => this.chatbots = res
+    )
+   }
 
   ajouter(form : NgForm){
     this.groupe.name = form.value.nom;
     this.groupe.description = form.value.description  ;
     this.groupe.isActive =  form.value.active  ;
+    this.groupe.chatBot = form.value.bot ;
     console.log(this.groupe);
 
 
@@ -35,12 +42,6 @@ export class AjoutergroupeComponent implements OnInit {
     this.dialogRef.close();
 
 
-  }
-
-
-
-  ID(){
-    return (new Date().getTime() + Math.floor((Math.random()*10000)+1))
   }
 
 
@@ -57,8 +58,8 @@ export class AjoutergroupeComponent implements OnInit {
         align:'center'
       },
       template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-          '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-          '<i class="material-icons" data-notify="icon">'+icon+'</i> ' +
+          '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-chatbot">close</i></button>' +
+          '<i class="material-chatbot" data-notify="icon">'+icon+'</i> ' +
           '<span data-notify="title">{1}</span> ' +
           '<span data-notify="message">{2}</span>' +
           '<div class="progress" data-notify="progressbar">' +

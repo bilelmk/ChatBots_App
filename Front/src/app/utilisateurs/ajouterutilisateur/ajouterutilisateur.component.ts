@@ -5,6 +5,8 @@ import {Utilisateur} from '../../classes/utilisateur';
 import {UtilisateurService} from '../../services/utilisateurs.service';
 import {GroupeService} from '../../services/groupes.service';
 import {Groupe} from '../../classes/groupe';
+import {ProfilService} from '../../services/profil.service';
+import {Profil} from '../../classes/profil';
 
 declare var $: any;
 
@@ -17,11 +19,15 @@ export class AjouterutilisateurComponent implements OnInit {
 
   utilisateur = new Utilisateur() ;
   groupes : Groupe[] ;
-  constructor(private utilisateurservice : UtilisateurService ,
-              private groupeservice : GroupeService ,
+  profils : Profil[] ;
+  constructor(private utilisateurservice : UtilisateurService , private groupeservice : GroupeService ,
+              private profilservice : ProfilService ,
               public dialogRef: MatDialogRef<AjouterutilisateurComponent>,) { }
 
   ngOnInit() {
+    this.profilservice.getProfils().subscribe(
+        (res) => this.profils = res
+    )
     this.groupeservice.getGroupes().subscribe(
         (res) => this.groupes = res
     )
@@ -37,15 +43,17 @@ export class AjouterutilisateurComponent implements OnInit {
     this.utilisateur.isActive = form.value.isActive == true ;
     this.utilisateur.isAdminGroup  = form.value.admin  == true  ;
     this.utilisateur.isSuperUser=form.value.adminGrp  == true  ;
+    this.utilisateur.profil = form.value.profil ;
     let grp = new Groupe ;
     grp.id = form.value.groupe.id ;
     this.utilisateur.groupes.push(grp)
 
     this.utilisateurservice.postUser(this.utilisateur).subscribe(
         (res) => {
+          console.log(res)
           this.showNotification('success' , 'Utilisateur Ajouter Avec Succès' ,'check_circle_outline' )
-
         },(err) => {
+          console.log(err)
           this.showNotification('warning' , 'Opération D\'ajout Echoué' , 'highlight_off')
         }
   ) ;
@@ -68,8 +76,8 @@ export class AjouterutilisateurComponent implements OnInit {
         align:'center'
       },
       template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-          '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-          '<i class="material-icons" data-notify="icon">'+icon+'</i> ' +
+          '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-chatbot">close</i></button>' +
+          '<i class="material-chatbot" data-notify="icon">'+icon+'</i> ' +
           '<span data-notify="title">{1}</span> ' +
           '<span data-notify="message">{2}</span>' +
           '<div class="progress" data-notify="progressbar">' +
