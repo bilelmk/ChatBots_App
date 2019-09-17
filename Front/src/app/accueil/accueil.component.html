@@ -1,3 +1,52 @@
-<div class="accueil">
+<div class="accueil ">
+    <div class="row full-height">
+        <div class="col-md-4">
+            <div class="card">
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4 full-height">
+            <div class="card chatbox full-height">
+                <div class="row header">
+                    <div class="col-md-7 ">
+                        <h6 class="chattitle">{{selectedBot ? selectedBot.name : 'Choisir Un Groupe'}}</h6>
+                    </div>
+                    <div class="form-group col-md-5 noMargin-noPadding" >
+                        <mat-form-field appearance="outline"  class="noMargin-noPadding">
+                            <mat-label>Groupes</mat-label>
+                            <mat-select [(ngModel)]="selectedBot">
+                                <mat-option *ngFor="let grp of groupes" [value]="grp.chatBot" >
+                                    {{grp.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div style="overflow-y: scroll ;height:600px">
+                    <div *ngFor="let d of discution" style="display: block !important ; " >
+                        <p  *ngIf="d.sender == 'me'" class="me">{{ d.content}}</p>
+                        <p  *ngIf="d.sender == 'you'" class="you">{{ d.content}}</p>
+                    </div>
+                </div>
+
+                <div class="on-bottom row" *ngIf="selectedBot != undefined">
+                    <div class="col-10" >
+                        <input #input ngModel name="msg" class="chatinput" placeholder="Ecrivez Un Message" >
+                    </div>
+                    <div class="col-2">
+                        <button class="chatbutton" (click)="msg(input)">
+                            <i class="material-icons">
+                            send
+                        </i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

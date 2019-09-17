@@ -20,9 +20,21 @@ export class ModifiergroupeComponent implements OnInit {
               private groupeService : GroupeService) { }
 
   ngOnInit() {
-    this.chatbotsService.getChatbots().subscribe(
-        (res) => this.chatbots = res
-    )
+    this.groupeService.getGroupesBots().then(
+        botsindex => {
+          this.chatbotsService.getChatbots().subscribe(
+              (res) => {
+                this.chatbots = res.filter(
+                    chb => {
+                      return !botsindex.find((i)=> {
+                        return (i == chb.id)
+                      })
+                    }
+                )
+              }
+          )
+        }
+    ) ;
   }
 
   modifier(){

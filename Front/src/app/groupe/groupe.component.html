@@ -52,7 +52,7 @@
 
                                 <ng-container matColumnDef="chatbot">
                                     <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Chatbot</th>
-                                    <td  mat-cell *matCellDef="let element"> {{element.chatBot.name ? element.chatBot.name : 'Pas de Chatbot '}} </td>
+                                    <td  mat-cell *matCellDef="let element"> {{element.chatBot ? element.chatBot.name : 'Pas de Chatbot '}} </td>
                                 </ng-container>
 
                                 <!-- Symbol Column -->

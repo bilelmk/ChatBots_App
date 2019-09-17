@@ -20,8 +20,7 @@ export class ModifierutilisateurComponent implements OnInit {
   }
 
   modifier(){
-    console.log(this.data)
-    this.utilisateurservice.putUser(this.data).subscribe(
+    this.utilisateurservice.postUser(this.data).subscribe(
         (res) => console.log(res),(err ) => console.log(err)
     ) ;
 

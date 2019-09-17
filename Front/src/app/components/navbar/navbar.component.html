@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <div class="collapse navbar-collapse justify-content-end" id="navigation"  >
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item col-auto ">
@@ -21,7 +21,13 @@
                     </p>
 
                 </li>
+
             </ul>
+            <button class="logout-btn"  matTooltip="Logout" [matTooltipPosition]="'above'" >
+                <i class="material-icons logout" (click)="logout()">
+                    power_settings_new
+                </i>
+            </button>
         </div>
     </div>
 </nav>

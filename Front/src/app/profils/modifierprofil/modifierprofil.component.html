@@ -31,7 +31,7 @@
       </tr>
       <tr>
         <td class="table-title">Utilisateurs</td>
-        <td><mat-checkbox class="example-margin" checked  name="userAdd"></mat-checkbox></td>
+        <td><mat-checkbox class="example-margin" [(ngModel)]="userAdd"  name="profilAdd"></mat-checkbox></td>
         <td><mat-checkbox class="example-margin" [(ngModel)]="userUp"  name="userUp"></mat-checkbox></td>
         <td><mat-checkbox class="example-margin" [(ngModel)]="userDel"  name="userDel"></mat-checkbox></td>
         <td><mat-checkbox class="example-margin" [(ngModel)]="userCom"  name="userCom"></mat-checkbox></td>
@@ -68,7 +68,7 @@
 
     </table>
     <div class="col-md-6 noMargin-noPadding">
-      <button style="width: 100%" mat-raised-button class="Btn-blue" type="submit" [disabled]="!form.valid" >Ajouter</button>
+      <button style="width: 100%" mat-raised-button class="Btn-blue" (click)="modifier()" [disabled]="!form.valid" >Appliquer Les Modifications</button>
     </div>
 
   </div>

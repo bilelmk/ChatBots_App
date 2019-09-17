@@ -16,7 +16,6 @@ import {
   MatSelectModule, MatListModule, MatRadioModule, MatCheckboxModule
 } from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ProfessorProfileComponent } from './professor-profile/professor-profile.component';
 import {AjouterutilisateurComponent} from './utilisateurs/ajouterutilisateur/ajouterutilisateur.component';
 import {SupprimerutilisateurComponent} from './utilisateurs/supprimerutilisateur/supprimerutilisateur.component';
 import {ModifierutilisateurComponent} from './utilisateurs/modifierutilisateur/modifierutilisateur.component';
@@ -30,6 +29,12 @@ import {SupprimerprofilComponent} from './profils/supprimerprofil/supprimerprofi
 import {AjouterchatbotComponent} from './chatbot/ajouterchatbot/ajouterchatbot.component';
 import {ModifierchatbotComponent} from './chatbot/modifierchatbot/modifierchatbot.component';
 import {SupprimerchatbotComponent} from './chatbot/supprimerchatbot/supprimerchatbot.component';
+import {AjouterconnaissanceComponent} from './base/ajouterconnaissance/ajouterconnaissance.component';
+import {ModifierconnaissanceComponent} from './base/modifierconnaissance/modifierconnaissance.component';
+import {SupprimerconnaissanceComponent} from './base/supprimerconnaissance/supprimerconnaissance.component';
+import {ChatbotlearnComponent} from './chatbot/chatbotlearn/chatbotlearn.component';
+import {CnlistComponent} from './chatbot/cnlist/cnlist.component';
+
 
 @NgModule({
   imports: [
@@ -69,13 +74,17 @@ import {SupprimerchatbotComponent} from './chatbot/supprimerchatbot/supprimercha
     SupprimerprofilComponent,
     AjouterchatbotComponent,
     ModifierchatbotComponent,
-    SupprimerchatbotComponent
+    SupprimerchatbotComponent,
+    AjouterconnaissanceComponent,
+    ModifierconnaissanceComponent,
+    SupprimerconnaissanceComponent,
+    ChatbotlearnComponent,
+    CnlistComponent
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     SigninComponent,
-    ProfessorProfileComponent,
     AjouterutilisateurComponent,
     SupprimerutilisateurComponent,
     ModifierutilisateurComponent,
@@ -88,7 +97,12 @@ import {SupprimerchatbotComponent} from './chatbot/supprimerchatbot/supprimercha
     SupprimerprofilComponent,
     AjouterchatbotComponent,
     ModifierchatbotComponent,
-    SupprimerchatbotComponent
+    SupprimerchatbotComponent,
+    AjouterconnaissanceComponent,
+    ModifierconnaissanceComponent,
+    SupprimerconnaissanceComponent,
+    ChatbotlearnComponent,
+    CnlistComponent
 
 
   ],

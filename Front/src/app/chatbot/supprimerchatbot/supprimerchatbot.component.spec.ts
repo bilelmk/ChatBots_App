@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SupprimerchatbotComponent } from './supprimerchatbot.component';
 
-describe('SupprimerchatbotComponent', () => {
+describe('SupprimerconnaissanceComponent', () => {
   let component: SupprimerchatbotComponent;
   let fixture: ComponentFixture<SupprimerchatbotComponent>;
 

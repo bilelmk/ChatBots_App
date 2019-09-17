@@ -34,7 +34,7 @@ public class ChatBotApplication implements CommandLineRunner {
 		Groupe groupe=new Groupe();
 		groupe.setId(1L);
 		groupe.setDescription("test amani");
-		groupe.setName("xxxx");
+		groupe.setName(
 		groupe.setActive(true);
 		user.setGroupes(Arrays.asList(groupe));
 		userRepository.save(user);*/

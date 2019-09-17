@@ -22,9 +22,21 @@ export class AjoutergroupeComponent implements OnInit {
                public dialogRef: MatDialogRef<AjoutergroupeComponent>) { }
 
   ngOnInit() {
-    this.chatbotsService.getChatbots().subscribe(
-        (res) => this.chatbots = res
-    )
+    this.groupeservice.getGroupesBots().then(
+        botsindex => {
+          this.chatbotsService.getChatbots().subscribe(
+              (res) => {
+                this.chatbots = res.filter(
+                    chb => {
+                      return !botsindex.find((i)=> {
+                        return (i == chb.id)
+                      })
+                    }
+                )
+              }
+          )
+        }
+    ) ;
    }
 
   ajouter(form : NgForm){
@@ -32,7 +44,6 @@ export class AjoutergroupeComponent implements OnInit {
     this.groupe.description = form.value.description  ;
     this.groupe.isActive =  form.value.active  ;
     this.groupe.chatBot = form.value.bot ;
-    console.log(this.groupe);
 
 
     this.groupeservice.postGroupe(this.groupe).subscribe(

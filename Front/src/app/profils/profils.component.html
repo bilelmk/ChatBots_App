@@ -7,7 +7,7 @@
                     <div class="card-header  card-header-danger " style="padding-bottom: 0px">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="card-title" >Gestion Des Groupes</h4>
+                                <h4 class="card-title" >Gestion Des Frofils</h4>
                             </div>
                             <div class="col-4 row">
                                 <div class="col-2" style="margin-right:-27px">
@@ -47,13 +47,13 @@
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="isActive">
-                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">isActive</th>
+                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Active</th>
                                     <td  mat-cell *matCellDef="let element"> {{element.isActive}} </td>
                                 </ng-container>
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="action" >
-                                    <th class="text-center title" mat-header-cell *matHeaderCellDef > Action </th>
+                                    <th class="text-center title" mat-header-cell *matHeaderCellDef > Actions </th>
                                     <td class="text-center" mat-cell *matCellDef="let element">
 
                                         <button mat-raised-button

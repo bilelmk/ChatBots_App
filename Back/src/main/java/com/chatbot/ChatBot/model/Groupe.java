@@ -41,5 +41,6 @@ public class Groupe {
    private List<User> users=new ArrayList<>();
 
     @OneToOne(fetch=FetchType.EAGER,cascade = {CascadeType.MERGE})
+    @JsonIgnoreProperties("groupe")
     private ChatBot chatBot;
 }

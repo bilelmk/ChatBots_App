@@ -170,7 +170,7 @@ export class AjouterprofilComponent implements OnInit {
     }
 
 
-    /********* Base **********/
+    /********* Connaissance **********/
     if(this.baseAdd){
       let p = new Permission ;
       p.permission = "ADD" ;
@@ -187,7 +187,7 @@ export class AjouterprofilComponent implements OnInit {
 
     if(this.baseDel){
       let p = new Permission ;
-      p.permission = "WRITE" ;
+      p.permission = "DELETE" ;
       p.role ="BASE_CONNAISSANCE" ;
       profil.permisRoles.push(p)
     }

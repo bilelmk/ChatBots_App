@@ -1,0 +1,43 @@
+<div class="col-12 p-0 mb-5 " >
+  <h3 class="model-titre">Modifier Une Connaissance</h3>
+</div>
+<form (ngSubmit)="modifier(form)" #form="ngForm">
+  <div class="row mt-4" >
+
+    <div class="form-group col-md-12 noMargin-noPadding" >
+      <mat-form-field appearance="outline" class="noMargin-noPadding" >
+        <mat-label>Question</mat-label>
+        <textarea [(ngModel)]="data.question" name="question" matInput placeholder="Description" type="text" required minlength="2" >
+        </textarea>
+        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+    <div class="form-group col-md-12 noMargin-noPadding" >
+      <mat-form-field appearance="outline" class="noMargin-noPadding" >
+        <mat-label>Reponse</mat-label>
+        <textarea [(ngModel)]="data.reponse" name="reponse" matInput placeholder="Description" type="text" required minlength="2" >
+        </textarea>
+        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="col-md-6 noMargin-noPadding">
+      <button style="width: 100%" mat-raised-button class="Btn-blue" type="submit" [disabled]="!form.valid" >Appliquer Les Modifications</button>
+    </div>
+
+  </div>
+
+
+
+
+</form>
+
+
+
+
+
+
+

@@ -14,8 +14,7 @@ export class SigninComponent implements OnInit {
 
     utilisateur : Utilisateur ;
   constructor(private connectionService: ConnectionService,
-              private router: Router,
-              private route : ActivatedRoute) { }
+              private router: Router) { }
   ngOnInit() {
   }
 
@@ -27,8 +26,8 @@ export class SigninComponent implements OnInit {
 
               sessionStorage.setItem('nom', res.firstName);
               sessionStorage.setItem('prenom', res.lastName);
+              sessionStorage.setItem('id', res.id);
               sessionStorage.setItem('username', res.username);
-              sessionStorage.setItem('matricule', res.matricule);
 
           }
 

@@ -58,6 +58,28 @@
 
                                         <button mat-raised-button
                                                 type="button"
+                                                matTooltip="Connaissances"
+                                                [matTooltipPosition]="'above'"
+                                                (click)="openListDialog(element.knowledgeBases)"
+                                                class="btn btn-primary btn-link btn btn-just-icon">
+                                            <i class="material-icons icon-blue">
+                                                list
+                                            </i>
+                                        </button>
+
+                                        <button mat-raised-button
+                                                type="button"
+                                                matTooltip="Connaissances"
+                                                [matTooltipPosition]="'above'"
+                                                (click)="openLearnDialog(element)"
+                                                class="btn btn-primary btn-link btn btn-just-icon">
+                                            <i class="material-icons icon-blue">
+                                                chat
+                                            </i>
+                                        </button>
+
+                                        <button mat-raised-button
+                                                type="button"
                                                 matTooltip="Modifier"
                                                 [matTooltipPosition]="'above'"
                                                 (click)="openPatchDialog(element)"

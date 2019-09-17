@@ -5,3 +5,66 @@
     background-size: cover;
     padding-top: 90px;
 }
+
+.chatbox{
+    background-color: rgba(255,255,255,0.9);
+}
+
+.full-height{
+    height: 96%;
+}
+
+.chattitle{
+    padding: 20px;
+    margin : 0px;
+    color : white;
+}
+
+.chatinput{
+    padding: 20px;
+    margin : 0px;
+    width: 100%;
+
+
+}
+
+.chatbutton{
+    padding: 18px;
+    margin : 0px;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+.on-bottom{
+    position : absolute;
+    bottom : 0px ;
+    width: 100%;
+}
+
+.me {
+    padding: 10px;
+    background-color: #f9b771;
+    border-radius: 8px;
+    margin: 10px;
+    display: inline-block;
+    white-space:initial;
+    width:300px;
+    float: right;
+}
+
+.you{
+    margin: 10px;
+    padding: 10px;
+    background-color: #d1d1d1;
+    border-radius: 8px;
+    display: inline-block;
+    white-space:initial;
+    width:300px;
+
+}
+
+.header{
+    background-color: #df5842 ;
+    margin: 0px;
+}
+

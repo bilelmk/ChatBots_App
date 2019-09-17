@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AjoutergroupeComponent } from './ajoutergroupe.component';
 
-describe('AjouterchatbotComponent', () => {
+describe('AjouterconnaissanceComponent', () => {
   let component: AjoutergroupeComponent;
   let fixture: ComponentFixture<AjoutergroupeComponent>;
 

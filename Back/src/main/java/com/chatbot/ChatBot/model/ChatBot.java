@@ -34,6 +34,10 @@ public class ChatBot {
     @JsonProperty("isActive")
     private boolean isActive;
 
+    @OneToOne(fetch=FetchType.EAGER,mappedBy = "chatBot")
+    @JsonIgnoreProperties("chatBot")
+    private Groupe groupe;
+
     @ManyToMany(mappedBy = "chatBots")
     @JsonIgnoreProperties("chatBots")
     @LazyCollection(LazyCollectionOption.FALSE)

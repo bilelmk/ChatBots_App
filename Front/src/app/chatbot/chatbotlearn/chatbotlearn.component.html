@@ -1,0 +1,73 @@
+
+<div class="col-12 p-0 m-0" style="min-width: 800px ; min-height: 500px" >
+    <div class="col-12 p-0 m-0 " >
+        <div class="row bg-orangr">
+            <div class="col-12 pl-2 m-0 "><h3 class="model-titre">Liste des Utilisateurs</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-10 pt-3 m-0 ">
+                <select [(ngModel)]="cnToAdd" style="padding-left: 12px">
+                    <option [disabled]="true" value="Ajouter Connaissance">
+                    Ajouter Connaissance
+                    </option>
+                    <option *ngFor="let cn of cns" value="{{cn.id}}" >
+                    question : {{cn.question    }} response : {{cn.reponse}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-2 pt-3 m-0 ">
+                <button [disabled]="cnToAdd === null"  matTooltip="Ajouter Au Chatbot" [matTooltipPosition]="'above'"
+                mat-stroked-button class="add-btn" (click)="add()">
+                <i class="material-icons">
+                add
+                </i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4" style="overflow-y: scroll ; height: 500px">
+        <div *ngIf="!data.knowledgeBases[0]">
+            Pas De Connaissances !!!
+        </div >
+        <div  *ngIf="data.knowledgeBases[0]">
+            <div class="table-responsive">
+                <table  mat-table class="mat-elevation-z8 table-hover table" >
+                    <tr class="text-center title" >
+                        <td style="padding: 20px"> Question </td>
+                        <td style="padding: 20px"> Reponse </td>
+                        <td style="padding: 20px"> Delete </td>
+
+                    </tr>
+
+                    <tr class="text-center" *ngFor="let cn of data.knowledgeBases">
+                        <td style="padding: 20px" > {{cn.question}} </td>
+                        <td style="padding: 20px"> {{cn.reponse}} </td>
+                        <td>
+                            <button mat-raised-button
+                                    type="button"
+                                    matTooltip="Supprimer"
+                                    [matTooltipPosition]="'above'"
+                                    (click)="supprimer(cn.id , data.id)"
+                                    class="btn btn-primary btn-link btn btn-just-icon" >
+
+                                <i class="material-icons icon-blue">
+                                    delete
+                                </i>
+                            </button>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+

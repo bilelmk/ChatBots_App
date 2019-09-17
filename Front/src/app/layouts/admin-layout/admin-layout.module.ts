@@ -9,7 +9,8 @@ import { ProfilsComponent } from '../../profils/profils.component';
 import { GroupeComponent } from '../../groupe/groupe.component';
 import { ChatbotComponent } from '../../chatbot/chatbot.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { BaseComponent } from '../../base/base.component';
+
 
 import {
   MatButtonModule,
@@ -63,7 +64,7 @@ import {
     GroupeComponent,
     ChatbotComponent,
     NotificationsComponent,
-    UpgradeComponent,
+    BaseComponent
 
   ]
 })

@@ -7,7 +7,7 @@
                     <div class="card-header card-header-danger " style="padding-bottom: 0px">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="card-title ">Gestion Des Clients</h4>
+                                <h4 class="card-title ">Gestion Des Utilisateurs</h4>
                             </div>
                             <div class="col-4 row">
                                 <div class="col-2" style="margin-right:-27px">
@@ -59,7 +59,7 @@
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="profil">
                                     <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Profil</th>
-                                    <td  mat-cell *matCellDef="let element"> {{element.profil  ? element.profil.name : 'Pas de profil '}} </td>
+                                    <td  mat-cell *matCellDef="let element"> {{element.profil  ? element.profil.name : 'Aucun profil'}} </td>
                                 </ng-container>
 
                                 <!-- Symbol Column -->
@@ -70,25 +70,25 @@
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="isActive">
-                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">isActive</th>
+                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Active</th>
                                     <td  mat-cell *matCellDef="let element"> {{element.isActive}} </td>
                                 </ng-container>
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="isAdminGroup">
-                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">isAdminGroup</th>
+                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Admin Groupe</th>
                                     <td  mat-cell *matCellDef="let element"> {{element.isAdminGroup}} </td>
                                 </ng-container>
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="groupes">
-                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">groupes</th>
-                                    <td  mat-cell *matCellDef="let element"> <pre>{{getGroupeName(element)}}</pre> </td>
+                                    <th  mat-header-cell *matHeaderCellDef mat-sort-header class="title text-center">Groupes</th>
+                                    <td  mat-cell *matCellDef="let element"> <pre>{{element.groupes[0] ? getGroupeName(element) :'Aucun Groupe'}}</pre> </td>
                                 </ng-container>
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="action" >
-                                    <th class="text-center title" mat-header-cell *matHeaderCellDef > Action </th>
+                                    <th class="text-center title" mat-header-cell *matHeaderCellDef > Actions </th>
                                     <td class="text-center" mat-cell *matCellDef="let element">
 
                                         <button mat-raised-button
