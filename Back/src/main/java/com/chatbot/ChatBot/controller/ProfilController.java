@@ -14,18 +14,26 @@ public class ProfilController {
     @Autowired
     ProfilService profilService;
 
+
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<Profil> getAllProfils(){
         return this.profilService.getAllProfils();
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping
     public Profil createProfil(@RequestBody Profil profil){
         return this.profilService.createProfil(profil);
     }
+
+    @CrossOrigin(origins = "*")
     @DeleteMapping("{id}")
     public void deleteProfil(@PathVariable Long id){
         this.profilService.deleteProfil(id);
     }
+
+    @CrossOrigin(origins = "*")
     @PutMapping
     public Profil editProfil(@RequestBody Profil profil){
       return this.profilService.createProfil(profil);

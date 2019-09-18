@@ -21,38 +21,51 @@
 <div  padding>
   <ion-grid style="margin-top: 70px">
     <ion-row>
-      <ion-col col-4 offset-1>
+
+      <ion-col  col-4 offset-1>
+        <a  [navPush]="Communication">
+          <img src="../../assets/imgs/msg.png">
+        </a>
+        <p class="menu-text" text-center>Communiquer avec le Chatbot</p>
+      </ion-col>
+
+      <ion-col col-4 offset-2>
         <a  [navPush]="Utilisateur">
           <img src="../../assets/imgs/consultation.png">
         </a>
         <p class="menu-text" text-center>Utilisateurs</p>
       </ion-col>
-      <ion-col  col-4 offset-2>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col  col-4 offset-1>
         <a  [navPush]="Profil">
           <img src="../../assets/imgs/mp.png">
         </a>
         <p class="menu-text" text-center>Profils</p>
       </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col  col-4 offset-1>
+      <ion-col  col-4 offset-2>
         <a  [navPush]="Groupe">
           <img src="../../assets/imgs/contact.png">
         </a>
         <p class="menu-text" text-center>Groupes</p>
       </ion-col>
-      <ion-col  col-4 offset-2>
+
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col  col-4 offset-1>
         <a  [navPush]="ChatBot">
           <img src="../../assets/imgs/budget.png">
         </a>
         <p class="menu-text" text-center>ChatBots</p>
       </ion-col>
 
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-4 offset-4>
+      <ion-col col-4 offset-2>
         <a [navPush]="Base">
           <img src="../../assets/imgs/parametre.png">
         </a>

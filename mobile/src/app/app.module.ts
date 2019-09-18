@@ -11,10 +11,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from "../pages/login/login";
 import { UtilisateurPage } from "../pages/Utilisateurs/utilisateur";
-import { ProfilPage } from "../pages/Profil/profil";
+import { ProfilPage } from "../pages/Profils/profil";
 import { BasePage } from "../pages/base/base";
 import { GroupesPage } from "../pages/groupes/groupes";
 import { ChatbotsPage } from "../pages/chatbots/chatbots";
+import { UtilisateurProvider } from '../providers/utilisateur/utilisateur';
+import { GroupeProvider } from '../providers/groupe/groupe';
+import { BaseProvider } from '../providers/base/base';
+import { ChatbotProvider } from '../providers/chatbot/chatbot';
+import { ProfilProvider } from '../providers/profil/profil';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,11 @@ import { ChatbotsPage } from "../pages/chatbots/chatbots";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UtilisateurProvider,
+    GroupeProvider,
+    BaseProvider,
+    ChatbotProvider,
+    ProfilProvider,
 
   ]
 })

@@ -2,6 +2,8 @@ import {Component, Injectable, OnInit} from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {HomePage} from "../home/home";
 import { Storage } from "@ionic/storage" ;
+import {UtilisateurProvider} from "../../providers/utilisateur/utilisateur";
+import {Utilisateur} from "../../classes/utilisateur";
 
 /**
  * Generated class for the LoginPage page.
@@ -17,7 +19,9 @@ import { Storage } from "@ionic/storage" ;
 })
 export class LoginPage implements OnInit{
 
-  constructor(public navCtrl: NavController,
+  Utilisateur : Utilisateur;
+  constructor(private userprovider : UtilisateurProvider,
+              public navCtrl: NavController,
               public navParams: NavParams,
               private alertCtrl : AlertController,
               private loadingCtrl : LoadingController,
@@ -27,40 +31,43 @@ export class LoginPage implements OnInit{
 
 
   ngOnInit() {
-    this.storage.get('client').then(
+    this.storage.get('user').then(
       (resp) => {
         if( resp != null){
           this.navCtrl.setRoot(HomePage);
         }
-  })}
+  })
+  }
 
 
   logForm(form) {
+    console.log(form.value.login)
+    console.log(form.value.pass)
+
     const loading = this.loadingCtrl.create({
       content:" Connexion . . . . "
     })
     loading.present() ;
-    // this.loginprovider.getClient(form.value.login , form.value.pass).subscribe(
-    //   (resp)=> {
-    //
-    //     this.client = resp ;
-    //     this.storage.set('client' , resp) ;
+    this.userprovider.login(form.value.login , form.value.pass).subscribe(
+      (resp)=> {
+        this.Utilisateur = resp ;
+        console.log(resp)
+        this.storage.set('user' , resp) ;
         this.navCtrl.setRoot(HomePage);
-    //     loading.dismiss()
-    //   },
-    //
-    //   (error)=> {
-    //
-        loading.dismiss();
-    //       const alert = this.alertCtrl.create({
-    //       title : 'La connexion a échoué ',
-    //       subTitle: 'Mot de passe ou numéro client incorrect',
-    //       buttons :['OK'],
-    //       cssClass : "alert"
-    //     });
-    //     alert.present() ;
+        loading.dismiss()
+      },
+      (error)=> {
+        console.log(error)
+        const alert = this.alertCtrl.create({
+          title: 'La connexion a échoué ',
+          subTitle: 'Mot de passe ou numéro client incorrect',
+          buttons: ['OK'],
+          cssClass: "alert"
+        });
+        loading.dismiss()
+        alert.present();
+      }
 
+    )
   }
-  //   )
-  // }
 }

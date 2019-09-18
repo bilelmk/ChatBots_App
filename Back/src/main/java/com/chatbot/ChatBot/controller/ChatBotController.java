@@ -14,18 +14,25 @@ public class ChatBotController {
     @Autowired
     ChatBotService chatBotService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<ChatBot> findAllChatbots(){
         return this.chatBotService.findAllChatbots();
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ChatBot createChatBot(@RequestBody ChatBot chatBot){
         return this.chatBotService.createChatBot(chatBot);
     }
+
+    @CrossOrigin(origins = "*")
     @PutMapping
     public ChatBot editChatBot(@RequestBody ChatBot chatBot){
         return this.chatBotService.createChatBot(chatBot);
     }
+
+    @CrossOrigin(origins = "*")
     @DeleteMapping("{id}")
     public void deleteChatBot(@PathVariable Long id){
         this.chatBotService.deleteChatBot(id);

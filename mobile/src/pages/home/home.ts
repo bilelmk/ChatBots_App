@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UtilisateurPage } from "../Utilisateurs/utilisateur";
-import { ProfilPage } from "../Profil/profil";
+import { ProfilPage } from "../Profils/profil";
 import { LoginPage } from "../login/login";
 import { Storage } from "@ionic/storage";
 import { LoadingController, NavController } from "ionic-angular";
@@ -30,7 +30,7 @@ export class HomePage {
       content:" Déconnexion . . . . "
     })
     loading.present();
-    this.storage.remove('client');
+    this.storage.remove('user');
     this.navCtrl.setRoot(LoginPage) ;
     loading.dismiss() ;
   }

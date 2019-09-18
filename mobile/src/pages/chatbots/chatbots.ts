@@ -18,8 +18,7 @@ export class ChatbotsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatbotsPage');
-  }
 
 }
+
+

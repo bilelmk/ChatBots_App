@@ -8,7 +8,7 @@ import { Storage } from "@ionic/storage" ;
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from "../pages/login/login";
 import { UtilisateurPage} from "../pages/Utilisateurs/utilisateur";
-import { ProfilPage } from "../pages/Profil/profil";
+import { ProfilPage } from "../pages/Profils/profil";
 import {GroupesPage} from "../pages/groupes/groupes";
 import {ChatbotsPage} from "../pages/chatbots/chatbots";
 import {BasePage} from "../pages/base/base";

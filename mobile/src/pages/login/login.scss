@@ -1,12 +1,12 @@
 page-login {
-  background: linear-gradient(60deg, #00416e, #0064a5);
+  background: linear-gradient(60deg, #e9e2d0, #e9e2d0);
   .logo{
     margin-top: 10%;
     margin-bottom: 3%;
   }
 }
 .login-label{
-  color: #e8f1f5;
+  color: #444444;
 }
 .login-input{
   width: 100%;
@@ -15,11 +15,11 @@ page-login {
   padding-left: 15px;
   height: 40px;
   border-radius: 5px;
-  border : none ;
-  color:  #004a7c;
+  border : 1px solid rgba(0,0,0,0.3) ;
+  color: #4c4c4c;
 }
 .login-btn{
-  color: #004a7c;
+  color: #4c4c4c;
 }
 
 

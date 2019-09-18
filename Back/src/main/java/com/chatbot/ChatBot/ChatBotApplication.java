@@ -39,6 +39,6 @@ public class ChatBotApplication implements CommandLineRunner {
 		user.setGroupes(Arrays.asList(groupe));
 		userRepository.save(user);*/
 
-		log.info("amani");
+		log.info("Start Server");
 	}
 }
