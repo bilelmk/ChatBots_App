@@ -9,12 +9,36 @@
       <ion-col col-8>
         <ion-title>Gestion Des Profils</ion-title>
       </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="add()">
+          <ion-icon class="nav-icon" name="add" ></ion-icon>
+        </button>
+      </ion-col>
     </ion-row>
   </ion-navbar>
 </ion-header>
 
 
 
-<ion-content padding>
-<button ion-button (click)="test()" >test ng rok</button>
+<ion-content padding style="background-color: #e9e2d0;">
+  <div *ngFor="let profil of profils">
+    <ion-card class="compte-card" >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-11>
+            <h2 class="nom">{{profil.name}} </h2>
+          </ion-col>
+          <ion-col col-1>
+            <ion-icon (click)="actionSheet(profil)" name="more" class="menu"></ion-icon>
+          </ion-col>
+          <ion-col col-12>
+            <p class="para">{{profil.description}} </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
 </ion-content>
+
+

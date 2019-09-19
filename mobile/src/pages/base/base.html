@@ -7,7 +7,12 @@
         </button>
       </ion-col>
       <ion-col col-8>
-        <ion-title>Bases De Connaissance</ion-title>
+        <ion-title>Gestion Des Connaissances</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="add()">
+          <ion-icon class="nav-icon" name="add" ></ion-icon>
+        </button>
       </ion-col>
     </ion-row>
   </ion-navbar>
@@ -15,6 +20,46 @@
 
 
 
-<ion-content padding>
+<ion-content padding style="background-color: #e9e2d0;">
+  <div *ngFor="let cn of cns">
+    <ion-card class="compte-card" >
+      <ion-grid>
+
+        <ion-row  >
+          <ion-col col-3>
+            <p class="para1">Question :</p>
+            <p class="para1">Reponse :</p>
+          </ion-col>
+
+          <ion-col col-8>
+            <p class="para">{{cn.question}}</p>
+            <p class="para">{{cn.reponse}}</p>
+          </ion-col>
+
+          <ion-col col-1>
+            <ion-icon (click)="actionSheet(cn)" name="more" class="menu"></ion-icon>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row margin-top="20"  >
+          <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Chatbots</p></ion-col>
+          <ion-col col-6 *ngIf="cn.chatBots[0] !=  null">
+            <div *ngFor="let bot of cn.chatBots">
+              <p class="para1">Nom du Chatbot :</p>
+            </div>
+          </ion-col>
+          <ion-col col-6>
+            <div *ngFor="let bot of cn.chatBots">
+              <p class="para1">{{bot.name}}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card>
+  </div>
 
 </ion-content>
+
+

@@ -12,25 +12,27 @@ import {Observable} from "rxjs";
 @Injectable()
 export class ProfilProvider {
 
+  path :String = 'http://localhost:8181/' ;
+
   constructor(public http: HttpClient) {
     console.log('Hello ProfilProvider Provider');
   }
 
   getProfils() : Observable<Profil[]>{
-    return this.http.get<Profil[]>('http://localhost:8181/profil' );
+    return this.http.get<Profil[]>(this.path +'profil' );
   }
 
   postProfil(profil: Profil) : Observable<Profil>{
-    return this.http.post<Profil>('http://localhost:8181/profil' , profil );
+    return this.http.post<Profil>(this.path +'profil' , profil );
   }
 
   DeleteProfil(id : number) {
-    return this.http.delete('http://localhost:8181/profil/'+id );
+    return this.http.delete(this.path +'profil/'+id );
   }
 
 
   putProfil(profil: Profil) {
-    return this.http.put('http://localhost:8181/profil' , profil );
+    return this.http.put(this.path +'profil' , profil );
   }
 
 }

@@ -1,4 +1,36 @@
-page-consultation {
-  background-color: #c6ced2;
+page-utilisateur {
+  //background-color: #e9e2d0;
+  .compte-card{
+    padding: 10px;
+    border-left: 5px solid #f25947 ;
+    border-radius: 0px;
+  }
+  .nav-icon{
+    color: #f25947;
+    font-weight: bold;
+  }
 
+  .nom{
+    font-weight: 600;
+    font-size: 120%;
+    color: #f25947;
+  }
+
+  .para{
+    font-size: 90%;
+    color: #8f8f8f;
+  }
+
+  .para1{
+    font-size: 90%;
+    color: #494949;
+    font-weight: 600;
+  }
+  .session{
+    font-weight: 600;
+    color:  #f25947 ;
+  }
+  .menu{
+    font-size: 25px;
+  }
 }

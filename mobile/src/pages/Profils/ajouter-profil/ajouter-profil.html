@@ -1,0 +1,108 @@
+<<ion-header>
+  <ion-navbar>
+    <ion-row align-items-center>
+      <ion-col col-10 align-items-center>
+        <ion-title>Ajouter Un profil</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="dismiss()">
+          <ion-icon name="md-close" class="nav-icon" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  style="background-color: #e9e2d0">
+  <form #form="ngForm" (ngSubmit)="ajouter(form)" >
+    <ion-grid>
+
+      <diV padding>
+        <ion-row style="margin-bottom: 10px"  >
+          <ion-col col-5>
+            <label  class="login-label">Nom de Profil</label>
+          </ion-col>
+          <ion-col col-12>
+            <input color="three" class="login-input" name="nom" ngModel type="text" required  />
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row style="margin-bottom: 10px" >
+          <ion-col col-5>
+            <label  class="login-label">Description</label>
+          </ion-col>
+          <ion-col col-12>
+          <textarea color="three" class="login-input" name="description" ngModel type="text"  required
+                    style="padding-top:10px ; height: 80px">
+          </textarea>
+          </ion-col>
+        </ion-row>
+      </diV>
+
+
+      <table>
+        <tr>
+          <td class="table-title">Permission</td>
+          <td class="table-title">Ajouter</td>
+          <td class="table-title">Modifier</td>
+          <td class="table-title">Supprimer</td>
+          <td class="table-title">Communiquer</td>
+        </tr>
+        <tr>
+          <td class="table-title">Utilisateurs</td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="userAdd" name="userAdd"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="userUp"  name="userUp"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="userDel"  name="userDel"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="userCom"  name="userCom"></ion-checkbox></td>
+        </tr>
+        <tr>
+          <td class="table-title">Profils</td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="profilAdd"  name="profilAdd"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="profilUp"  name="profilUp"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="profilDel"  name="profilDel"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="profilCom"  name="profilCom"></ion-checkbox></td>
+        </tr>
+        <tr>
+          <td class="table-title">Groupes</td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="grpAdd"  name="grpAdd"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="grpUp"  name="grpUp"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="grpDel"  name="grpDel"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="grpCom"  name="grpCom"> </ion-checkbox></td>
+        </tr>
+        <tr>
+          <td class="table-title">ChatBots</td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="botAdd"  name="botAdd"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="botUp"  name="botUp"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="botDel"  name="botDel"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="botCom"  name="botCom"></ion-checkbox></td>
+        </tr>
+        <tr>
+          <td class="table-title">Connaissance</td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="baseAdd"  name="baseAdd"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="baseUp"   name="baseUp"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="baseDel"  name="baseDel"></ion-checkbox></td>
+          <td><ion-checkbox color="dark" class="example-margin" [(ngModel)]="baseCom"  name="baseCom"></ion-checkbox></td>
+        </tr>
+
+      </table>
+
+      <diV padding>
+      <ion-row style="margin-bottom: 10px" >
+        <ion-col col-3 class="row" align-items-center>
+          <ion-label >Active</ion-label>
+          <ion-checkbox color="dark" name="active" ngModel></ion-checkbox>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <button [disabled]="!form.valid" class="login-btn" color="three" block  ion-button type="submit">Ajouter</button>
+        </ion-col>
+      </ion-row>
+      </diV>
+    </ion-grid>
+
+  </form>
+</ion-content>
+

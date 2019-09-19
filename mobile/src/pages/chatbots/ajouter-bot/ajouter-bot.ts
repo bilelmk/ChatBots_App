@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the SupprimerUtilisateurPage page.
+ * Generated class for the AjouterBotPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-supprimer-utilisateur',
-  templateUrl: 'supprimer-utilisateur.html',
+  selector: 'page-ajouter-bot',
+  templateUrl: 'ajouter-bot.html',
 })
-export class SupprimerUtilisateurPage {
+export class AjouterBotPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SupprimerUtilisateurPage');
+    console.log('ionViewDidLoad AjouterBotPage');
   }
 
 }

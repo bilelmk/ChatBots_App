@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row align-items-center>
+      <ion-col col-10 align-items-center>
+        <ion-title>Ajouter Une Connaissance</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="dismiss()">
+          <ion-icon name="md-close" class="nav-icon" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: #e9e2d0">
+  <form #form="ngForm" (ngSubmit)="Add(form)" >
+    <ion-grid>
+
+      <ion-row style="margin-bottom: 10px" >
+        <ion-col col-5>
+          <label  class="login-label">Question</label>
+        </ion-col>
+        <ion-col col-12>
+          <textarea color="three" class="login-input" name="question" ngModel type="text"  required
+                    style="padding-top:10px ; height: 80px">
+          </textarea>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-bottom: 10px" >
+        <ion-col col-5>
+          <label  class="login-label">Reponse</label>
+        </ion-col>
+        <ion-col col-12>
+          <textarea color="three" class="login-input" name="reponse" ngModel type="text"  required
+                    style="padding-top:10px ; height: 80px">
+          </textarea>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-bottom: 10px" >
+        <ion-col col-12>
+          <label  class="login-label">Chatbots</label>
+        </ion-col>
+        <ion-col col-12>
+          <ion-select class="login-input" style="max-width: 100% ; background-color : white ; padding-top:10px"
+                      name="chatbot" ngModel >
+            <ion-option *ngFor="let bot of bots" [value]="bot">{{bot.name}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>
+          <button [disabled]="!form.valid" class="login-btn" color="three" block  ion-button type="submit">Ajouter</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+</ion-content>

@@ -12,23 +12,24 @@ import {Chatbot} from "../../classes/chatbot";
 @Injectable()
 export class ChatbotProvider {
 
+  path :String = 'http://localhost:8181/' ;
+
   constructor(public http: HttpClient) {
     console.log('Hello ChatbotProvider Provider');
   }
 
   getChatbots() : Observable<Chatbot[]>{
-    return this.http.get<Chatbot[]>('http://localhost:8181/chatbot' );
+    return this.http.get<Chatbot[]>(this.path + 'chatbot' );
   }
   postChatbots(chatbot: Chatbot) : Observable<Chatbot>{
-    return this.http.post<Chatbot>('http://localhost:8181/chatbot' , chatbot );
+    return this.http.post<Chatbot>(this.path + 'chatbot' , chatbot );
   }
 
   DeleteChatbots(id : number) {
-    return this.http.delete('http://localhost:8181/chatbot/'+id );
+    return this.http.delete(this.path + 'chatbot/'+id );
   }
 
-
   putChatbots(chatbot : Chatbot) {
-    return this.http.put('http://localhost:8181/chatbot' , chatbot );
+    return this.http.put(this.path + 'chatbot' , chatbot );
   }
 }

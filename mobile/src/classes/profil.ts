@@ -6,5 +6,6 @@ export class Profil {
     description : string ;
     name: string ;
     users: Utilisateur[]  ;
+    isActive : boolean ;
     permisRoles : Permission[] =[] ;
 }

@@ -1,20 +1,75 @@
-<ion-header >
-  <ion-navbar >
-    <ion-row  align-items-center>
-      <ion-col col-2>
-        <button ion-button icon-only menuToggle>
-          <ion-icon class="nav-icon" name="menu"></ion-icon>
-        </button>
-      </ion-col>
-      <ion-col col-8>
-        <ion-title>Gestion Des Utilisateurs</ion-title>
-      </ion-col>
-    </ion-row>
-  </ion-navbar>
-</ion-header>
+  <ion-header >
+    <ion-navbar >
+      <ion-row  align-items-center>
+        <ion-col col-2>
+          <button ion-button icon-only menuToggle>
+            <ion-icon class="nav-icon" name="menu"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-8>
+          <ion-title>Gestion Des Utilisateurs</ion-title>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button clear icon-only (click)="add()">
+            <ion-icon class="nav-icon" name="add" ></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-navbar>
+  </ion-header>
 
 
 
-<ion-content padding>
+  <ion-content padding style="background-color: #e9e2d0;">
+    <div *ngFor="let user of Utilisateurs">
+      <ion-card class="compte-card" >
+        <ion-grid>
+          <ion-row>
+            <ion-col col-11>
+              <h2 class="nom">{{user.firstName}} {{user.lastName}}</h2>
+            </ion-col>
+            <ion-col col-1>
+              <ion-icon (click)="actionSheet(user)" name="more" class="menu"></ion-icon>
+            </ion-col>
+          </ion-row>
 
-</ion-content>
+          <ion-row  >
+            <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Informations de base</p></ion-col>
+            <ion-col col-6>
+              <p class="para1">Nom d'Utilisateur :</p>
+              <p class="para1">Matricule :</p>
+              <p class="para1">E-mail :</p>
+              <p class="para1">Active :</p>
+              <p class="para1">Role :</p>
+            </ion-col>
+
+            <ion-col col-6>
+              <p class="para">{{user.username}}</p>
+              <p class="para">{{user.matricule}}</p>
+              <p class="para">{{user.email}}</p>
+              <p class="para">{{user.isActive}}</p>
+              <p class="para">{{user.isAdminGroup ? 'Groupe Admin' : ''}} {{user.isSuperUser ? 'Admin' : ''}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row margin-top="20"  >
+            <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Groupes</p></ion-col>
+            <ion-col col-6>
+              <div *ngFor="let grp of user.groupes">
+                <p class="para1">Nom du Groupe :</p>
+              </div>
+            </ion-col>
+            <ion-col col-6>
+              <div *ngFor="let grp of user.groupes">
+                <p class="para1">{{grp.name}}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-card>
+    </div>
+
+  </ion-content>
+
+

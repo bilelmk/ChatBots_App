@@ -17,16 +17,19 @@ export class GroupeService {
 
   async getGroupesBots() {
     let bots =[] ;
-    await this.http.get<Groupe[]>('group' ).subscribe(
+    await this.http.get<Groupe[]>('http://localhost:8181/group' ).subscribe(
         res => {
           for(let grp of res){
-            bots.push(grp.chatBot.id)
+            if(grp.chatBot != null){
+              bots.push(grp.chatBot.id)
+
+            }
           }
         }
     );
     return bots
-
   }
+
   postGroupe(groupe: Groupe) : Observable<Groupe>{
     return this.http.post<Groupe>('group' , groupe );
   }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {IonicPage, ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
+import {Utilisateur} from "../../../classes/utilisateur";
 
 /**
  * Generated class for the ModifierUtilisateurPage page.
@@ -13,13 +14,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-modifier-utilisateur',
   templateUrl: 'modifier-utilisateur.html',
 })
-export class ModifierUtilisateurPage {
+export class ModifierUtilisateurPage implements OnInit{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  utilisateur : Utilisateur ;
+  constructor(public navCtrl: NavController, public navParams: NavParams , private modalCtrl : ModalController ,
+             private viewCtrl : ViewController ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModifierUtilisateurPage');
+  ngOnInit(){
+    this.utilisateur = this.navParams.get('user') ;
   }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
 
 }

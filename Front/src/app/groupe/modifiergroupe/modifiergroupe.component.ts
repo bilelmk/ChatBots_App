@@ -31,6 +31,7 @@ export class ModifiergroupeComponent implements OnInit {
                       })
                     }
                 )
+                  this.chatbots.push(this.data.chatBot)
               }
           )
         }
@@ -38,7 +39,8 @@ export class ModifiergroupeComponent implements OnInit {
   }
 
   modifier(){
-    this.groupeService.putGroupe(this.data).subscribe(
+      console.log(this.data)
+      this.groupeService.putGroupe(this.data).subscribe(
   ) ;
 
     this.dialogRef.close();

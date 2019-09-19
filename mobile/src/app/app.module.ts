@@ -20,6 +20,17 @@ import { GroupeProvider } from '../providers/groupe/groupe';
 import { BaseProvider } from '../providers/base/base';
 import { ChatbotProvider } from '../providers/chatbot/chatbot';
 import { ProfilProvider } from '../providers/profil/profil';
+import {ModifierUtilisateurPage} from "../pages/Utilisateurs/modifier-utilisateur/modifier-utilisateur";
+import {AjouterUtilisateurPage} from "../pages/Utilisateurs/ajouter-utilisateur/ajouter-utilisateur";
+import {AjouterGroupePage} from "../pages/groupes/ajouter-groupe/ajouter-groupe";
+import {ModifierGroupePage} from "../pages/groupes/modifier-groupe/modifier-groupe";
+import {AjouterProfilPage} from "../pages/Profils/ajouter-profil/ajouter-profil";
+import {ModifierProfilPage} from "../pages/Profils/modifier-profil/modifier-profil";
+import {DetailProfilPage} from "../pages/Profils/detail-profil/detail-profil";
+import {AjouterCnPage} from "../pages/base/ajouter-cn/ajouter-cn";
+import {ModifierCnPage} from "../pages/base/modifier-cn/modifier-cn";
+import {ModifierBotPage} from "../pages/chatbots/modifier-bot/modifier-bot";
+import {AjouterBotPage} from "../pages/chatbots/ajouter-bot/ajouter-bot";
 
 @NgModule({
   declarations: [
@@ -30,7 +41,19 @@ import { ProfilProvider } from '../providers/profil/profil';
     ProfilPage,
     BasePage,
     GroupesPage,
-    ChatbotsPage
+    ChatbotsPage,
+    ModifierUtilisateurPage,
+    AjouterUtilisateurPage,
+    AjouterGroupePage,
+    ModifierGroupePage,
+    AjouterProfilPage,
+    ModifierProfilPage,
+    DetailProfilPage,
+    AjouterCnPage,
+    ModifierCnPage,
+    ModifierBotPage,
+    AjouterBotPage
+
 
   ],
   imports: [
@@ -49,7 +72,18 @@ import { ProfilProvider } from '../providers/profil/profil';
     ProfilPage,
     BasePage,
     GroupesPage,
-    ChatbotsPage
+    ChatbotsPage,
+    ModifierUtilisateurPage,
+    AjouterUtilisateurPage,
+    AjouterGroupePage,
+    ModifierGroupePage,
+    AjouterProfilPage,
+    ModifierProfilPage,
+    DetailProfilPage,
+    AjouterCnPage,
+    ModifierCnPage,
+    ModifierBotPage,
+    AjouterBotPage
 
   ],
   providers: [

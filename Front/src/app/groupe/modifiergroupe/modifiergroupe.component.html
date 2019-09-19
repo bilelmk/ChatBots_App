@@ -30,7 +30,7 @@
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline"  class="noMargin-noPadding">
         <mat-label>ChatBot</mat-label>
-        <mat-select [(ngModel)]="data.chatBot" name="bot">
+        <mat-select [(ngModel)]="data.chatBot" name="bot" required>
           <mat-option *ngFor="let bot of chatbots" [value]="bot" >
             {{bot.name}}
           </mat-option>

@@ -12,34 +12,35 @@ import {Groupe} from "../../classes/groupe";
 */
 @Injectable()
 export class UtilisateurProvider {
+  path :String = 'http://localhost:8181/' ;
 
   constructor(public http: HttpClient) {}
 
   login(username : string , password : string) : Observable<any>{
-    return this.http.post('http://localhost:8181/user/logIn' ,{username , password} );
+    return this.http.post(this.path + 'user/logIn' ,{username , password} );
   }
 
   getUsers() : Observable<Utilisateur[]>{
-    return this.http.get<Utilisateur[]>('http://localhost:8181/user' );
+    return this.http.get<Utilisateur[]>(this.path + 'user' );
   }
 
   postUser(user : Utilisateur) : Observable<Utilisateur>{
-    return this.http.post<Utilisateur>('http://localhost:8181/user' , user );
+    return this.http.post<Utilisateur>(this.path +'user' , user );
   }
 
   DeleteUser(id : number) {
-    return this.http.delete('http://localhost:8181/user/'+id );
+    return this.http.delete(this.path +'user/'+id );
   }
 
   putUser(user : Utilisateur) {
-    return this.http.put('http://localhost:8181/user/user' , user );
+    return this.http.put(this.path +'/user' , user );
   }
 
   DeleteUserFromGroupe(user: number , grp : number){
-    return this.http.delete('http://localhost:8181/user/group/'+user+'?groupe='+grp)
+    return this.http.delete(this.path + '/user/group/'+user+'?groupe='+grp)
   }
 
   AddUserToGroup(user: number , grp : Groupe){
-    return this.http.post('http://localhost:8181/user/'+user , grp)
+    return this.http.post(this.path + '/user/'+user , grp)
   }
 }

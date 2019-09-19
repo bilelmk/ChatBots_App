@@ -9,10 +9,49 @@
       <ion-col col-8>
         <ion-title>Gestion Des Groupes</ion-title>
       </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="add()">
+          <ion-icon class="nav-icon" name="add" ></ion-icon>
+        </button>
+      </ion-col>
     </ion-row>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+
+
+<ion-content padding style="background-color: #e9e2d0;">
+  <div *ngFor="let grp of groupes">
+    <ion-card class="compte-card" >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-11>
+            <h2 class="nom">{{grp.name}} </h2>
+          </ion-col>
+          <ion-col col-1>
+            <ion-icon (click)="actionSheet(grp)" name="more" class="menu"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row  >
+          <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Informations de base</p></ion-col>
+          <ion-col col-6>
+            <p class="para1">Descrition :</p>
+            <p class="para1">Chatbot :</p>
+            <p class="para1">Active :</p>
+          </ion-col>
+
+          <ion-col col-6>
+            <p class="para">{{grp.description}}</p>
+            <p class="para">{{grp.chatBot ? grp.chatBot.name : 'Pas de Chatbot '}}</p>
+            <p class="para">{{grp.isActive}}</p>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card>
+  </div>
 
 </ion-content>
+
+
