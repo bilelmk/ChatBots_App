@@ -1,5 +1,6 @@
 package com.chatbot.ChatBot.service;
 
+import com.chatbot.ChatBot.exception.ValidationException;
 import com.chatbot.ChatBot.model.Profil;
 import com.chatbot.ChatBot.model.User;
 import com.chatbot.ChatBot.repository.ProfilRepository;
@@ -25,6 +26,15 @@ public class ProfilService {
 
     public Profil createProfil(Profil profil){
        return this.profilRepository.save(profil);
+    }
+    public Profil updateProfil(Profil profilDetails){
+        Profil profil=this.profilRepository.findById(profilDetails.getId()).orElseThrow(()->new ValidationException("profil not found"));
+        profil.setActive(profilDetails.isActive());
+        profil.setDescription(profilDetails.getDescription());
+        profil.setLibPermission(profilDetails.getLibPermission());
+        profil.setPermisRoles(profilDetails.getPermisRoles());
+        profil.setName(profilDetails.getName());
+        return this.profilRepository.save(profil);
     }
     public void deleteProfil(Long id){
         List<User> profil=userRepository.findByProfilId(id);

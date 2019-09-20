@@ -36,4 +36,12 @@ public class ChatBotService {
     public List<ChatBot> findAllChatbots(){
         return this.chatBotRepository.findAll();
     }
+
+    public ChatBot updateChatBot(ChatBot chatBotDetails) {
+        ChatBot chatBot=this.chatBotRepository.findById(chatBotDetails.getId()).orElseThrow(()->new ValidationException("chatbot not found"));
+        chatBot.setActive(chatBotDetails.isActive());
+        chatBot.setDescription(chatBotDetails.getDescription());
+        chatBot.setName(chatBotDetails.getName());
+        return this.chatBotRepository.save(chatBot);
+    }
 }

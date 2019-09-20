@@ -36,6 +36,6 @@ public class ProfilController {
     @CrossOrigin(origins = "*")
     @PutMapping
     public Profil editProfil(@RequestBody Profil profil){
-      return this.profilService.createProfil(profil);
+      return this.profilService.updateProfil(profil);
     }
 }

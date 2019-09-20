@@ -27,6 +27,7 @@ export class UtilisateursComponent implements OnInit {
   ngOnInit() {
     this.utilisateurservice.getUsers().subscribe(
         (res) => {
+            console.log(res);
           this.Utilisateurs = res ;
           this.dataSource =  new MatTableDataSource(this.Utilisateurs);
           this.dataSource.paginator = this.paginator;

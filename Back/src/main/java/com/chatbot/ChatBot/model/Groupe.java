@@ -36,11 +36,11 @@ public class Groupe {
     private boolean isActive;
 
    @ManyToMany(mappedBy = "groupes")
-   @JsonIgnoreProperties("groupes")
+   @JsonIgnoreProperties(value = {"groupes"} ,allowSetters = true)
    @LazyCollection(LazyCollectionOption.FALSE)
    private List<User> users=new ArrayList<>();
 
     @OneToOne(fetch=FetchType.EAGER,cascade = {CascadeType.MERGE})
-    @JsonIgnoreProperties("groupe")
+    @JsonIgnoreProperties(value = {"groupe"} ,allowSetters = true)
     private ChatBot chatBot;
 }

@@ -19,6 +19,14 @@ public class GroupeService {
     public Groupe createGroup(Groupe group){
         return this.groupeRepository.save(group);
     }
+    public Groupe updateGroup(Groupe groupDatails){
+        Groupe groupe=this.groupeRepository.findById(groupDatails.getId()).orElseThrow(()->new ValidationException("groupe not found"));
+        groupe.setActive(groupDatails.isActive());
+        groupe.setName(groupDatails.getName());
+        groupe.setDescription(groupDatails.getDescription());
+        groupe.setChatBot(groupDatails.getChatBot());
+        return this.groupeRepository.save(groupe);
+    }
     public void deleteGroup(Long id)
     {
         this.groupeRepository.deleteById(id);
