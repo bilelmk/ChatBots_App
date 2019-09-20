@@ -39,7 +39,7 @@ public class GroupController {
     @CrossOrigin(origins = "*")
     @PutMapping
     public Groupe editGroupe(@RequestBody  Groupe groupe){
-        return groupeService.createGroup(groupe);
+        return groupeService.updateGroup(groupe);
     }
 
 

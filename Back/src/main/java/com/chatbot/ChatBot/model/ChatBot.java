@@ -35,11 +35,11 @@ public class ChatBot {
     private boolean isActive;
 
     @OneToOne(fetch=FetchType.EAGER,mappedBy = "chatBot")
-    @JsonIgnoreProperties("chatBot")
+    @JsonIgnoreProperties(value = {"chatBot"} ,allowSetters = true)
     private Groupe groupe;
 
     @ManyToMany(mappedBy = "chatBots")
-    @JsonIgnoreProperties("chatBots")
+    @JsonIgnoreProperties(value = {"chatBots"} ,allowSetters = true)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<KnowledgeBase> knowledgeBases=new ArrayList<>();
 

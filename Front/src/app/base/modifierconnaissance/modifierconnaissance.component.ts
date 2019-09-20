@@ -25,7 +25,7 @@ export class ModifierconnaissanceComponent implements OnInit {
   }
 
   modifier(){
-    this.cnservice.postConnaissance(this.data).subscribe(
+    this.cnservice.putConnaissance(this.data).subscribe(
         (res) => {
           this.dialogRef.close();
         }

@@ -29,7 +29,7 @@ public class KnowledgeBaseController {
     @CrossOrigin(origins = "*")
     @PutMapping
     public KnowledgeBase editKnowledgeBase(@RequestBody KnowledgeBase knowledgeBase){
-        return this.knowledgeBaseService.createKnowledgeBase(knowledgeBase);
+        return this.knowledgeBaseService.updateKnowledgeBase(knowledgeBase);
     }
 
     @CrossOrigin(origins = "*")

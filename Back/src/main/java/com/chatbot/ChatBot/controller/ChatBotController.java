@@ -29,7 +29,7 @@ public class ChatBotController {
     @CrossOrigin(origins = "*")
     @PutMapping
     public ChatBot editChatBot(@RequestBody ChatBot chatBot){
-        return this.chatBotService.createChatBot(chatBot);
+        return this.chatBotService.updateChatBot(chatBot);
     }
 
     @CrossOrigin(origins = "*")

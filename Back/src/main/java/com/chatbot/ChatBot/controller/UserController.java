@@ -43,8 +43,8 @@ public class UserController {
 
     @CrossOrigin(origins = "*")
     @PutMapping
-    public User editUser(User user){
-        return userService.createUser(user);
+    public User editUser(@RequestBody User user){
+        return userService.updateUser(user);
     }
 
     @CrossOrigin(origins = "*")

@@ -22,6 +22,12 @@ public class KnowledgeBaseService {
     public KnowledgeBase createKnowledgeBase(KnowledgeBase knowledgeBase){
         return this.knowledgeBaseRepository.save(knowledgeBase);
     }
+    public KnowledgeBase updateKnowledgeBase(KnowledgeBase baseDetails){
+        KnowledgeBase knowledgeBase=knowledgeBaseRepository.findById(baseDetails.getId()).orElseThrow(()->new ValidationException("not found"));
+        knowledgeBase.setQuestion(baseDetails.getQuestion());
+        knowledgeBase.setReponse(baseDetails.getReponse());
+        return knowledgeBaseRepository.save(knowledgeBase);
+    }
     public void deleteKnowledgeBase(Long id){
         this.knowledgeBaseRepository.deleteById(id);
     }

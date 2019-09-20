@@ -36,6 +36,21 @@ public class UserService {
       user.setPassword(hashPwd(user.getPassword()));
       return  userRepository.save(user);
     }
+    public User updateUser(User userDetails){
+      User user=userRepository.findById(userDetails.getId()).orElseThrow(()-> new ValidationException("user no found"));
+      user.setProfil(userDetails.getProfil());
+      user.setGroupes(userDetails.getGroupes());
+      user.setUsername(userDetails.getUsername());
+      user.setActive(userDetails.isActive());
+      user.setMatricule(userDetails.getMatricule());
+      user.setFirstName(userDetails.getFirstName());
+      user.setPassword(userDetails.getPassword());
+      user.setAdminGroup(userDetails.isAdminGroup());
+      user.setEmail(userDetails.getEmail());
+      user.setLastName(userDetails.getLastName());
+      user.setSuperUser(userDetails.isSuperUser());
+      return this.userRepository.save(user);
+    }
     public User logIn(User user){
         List<User> users=userRepository.findByUsername(user.getUsername());
         if(users.size()==1) {
