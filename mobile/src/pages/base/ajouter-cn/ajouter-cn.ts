@@ -77,7 +77,7 @@ export class AjouterCnPage implements OnInit{
           cssClass : "fail" }) ;
         toast.present() ;
         loading.dismiss() ;
-        this.cn = null  ;
+        this.cn = new Connaissance()  ;
       }
     ) ;
   }

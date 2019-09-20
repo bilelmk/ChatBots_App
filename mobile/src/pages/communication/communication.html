@@ -1,0 +1,84 @@
+<ion-header >
+  <ion-navbar >
+    <ion-row  align-items-center>
+      <ion-col col-1>
+        <button ion-button icon-only menuToggle>
+          <ion-icon class="nav-icon" name="menu"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-11>
+        <ion-title>Communiquer avec les ChatBots</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background-color: #e9e2d0;">
+    <ion-card class="compte-card" >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <h2 class="nom">{{selectMsg()}}</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row  >
+          <ion-col col-12>
+            <ion-select class="login-input" style="max-width: 100% ; background-color : white ; padding-top:10px"
+                        name="groupe" [(ngModel)]="selectedBot" >
+              <ion-option *ngFor="let grp of groupes" [value]="grp.chatBot">
+                {{grp.name}}
+              </ion-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+  <ion-card class="compte-card" style="height: 78%">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col col-12>
+          <div style="overflow-y: scroll ;height:30em">
+            <div *ngFor="let d of discution" >
+
+              <ion-row *ngIf="d.sender == 'me'" justify-content-start>
+                <ion-col col-auto >
+                  <p   class="me">{{ d.content}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row justify-content-end *ngIf="d.sender == 'you'">
+                <ion-col  col-auto >
+                  <p  margin-left="auto" class="you">{{ d.content}}</p>
+                </ion-col>
+              </ion-row>
+
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col *ngIf="existBot()">
+          <ion-row>
+            <ion-col col-10 >
+              <input color="three" class="login-input" #input ngModel name="msg" placeholder="Ecrivez Un Message"  />
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button clear icon-only (click)="msg(input)">
+              <ion-icon name="send" class="nav-icon" ></ion-icon>
+            </button>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>
+
+

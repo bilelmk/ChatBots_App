@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row align-items-center>
+      <ion-col col-10 align-items-center>
+        <ion-title>Ajouter/Supprimer Connaissance</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="dismiss()">
+          <ion-icon name="md-close" class="nav-icon" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background-color: #e9e2d0;">
+
+  <ion-card class="compte-card" >
+    <ion-grid>
+      <ion-row style="margin-bottom: 10px" >
+
+        <ion-col col-12>
+          <label  class="login-label">Ajouter Des Connaissances</label>
+        </ion-col>
+
+        <ion-col col-10>
+          <ion-select [(ngModel)]="cnToAdd" class="login-input" style="max-width: 100% ; background-color : white ; padding-top:10px"
+                      name="chatbot" ngModel >
+            <ion-option  *ngFor="let cn of cns" [value]="cn.id" >question : {{cn.question    }} response : {{cn.reponse}}</ion-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col col-2>
+          <button [disabled]="cnToAdd === null"  ion-button clear icon-only (click)="add()">
+            <ion-icon name="add" class="nav-icon" ></ion-icon>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <div *ngIf="!data.knowledgeBases[0]">
+    <ion-card class="compte-card" >
+      <ion-grid>
+        <ion-row  >
+          Pas De Connaissances !!!
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div >
+  <div *ngIf="data.knowledgeBases[0]">
+    <div *ngFor="let cn of data.knowledgeBases">
+      <ion-card class="compte-card" >
+        <ion-grid>
+          <ion-row  >
+            <ion-col col-3>
+              <p class="para1">Question :</p>
+              <p class="para1">Reponse :</p>
+            </ion-col>
+            <ion-col col-7>
+              <p class="para">{{cn.question}}</p>
+              <p class="para">{{cn.reponse}}</p>
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button clear icon-only (click)="supprimer(cn.id , data.id)">
+                <ion-icon name="trash" class="nav-icon" ></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -12,6 +12,7 @@ import { ProfilPage } from "../pages/Profils/profil";
 import {GroupesPage} from "../pages/groupes/groupes";
 import {ChatbotsPage} from "../pages/chatbots/chatbots";
 import {BasePage} from "../pages/base/base";
+import {CommunicationPage} from "../pages/communication/communication";
 
 
 
@@ -28,7 +29,7 @@ export class MyApp {
   Groupe = GroupesPage;
   ChatBot = ChatbotsPage;
   Base = BasePage;
-
+  com = CommunicationPage
   Home = HomePage ;
 
   constructor(platform: Platform, statusBar: StatusBar,
@@ -46,7 +47,7 @@ export class MyApp {
       content:" Déconnexion . . . . "
     })
     loading.present();
-    this.storage.remove('client');
+    this.storage.remove('user');
     this.nav.setRoot(LoginPage) ;
     loading.dismiss() ;
   }

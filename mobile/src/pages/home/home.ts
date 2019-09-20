@@ -7,6 +7,7 @@ import { LoadingController, NavController } from "ionic-angular";
 import {GroupesPage} from "../groupes/groupes";
 import {ChatbotsPage} from "../chatbots/chatbots";
 import {BasePage} from "../base/base";
+import {CommunicationPage} from "../communication/communication";
 
 @Component({
   selector: 'page-home',
@@ -23,6 +24,7 @@ export class HomePage {
   Groupe = GroupesPage;
   ChatBot = ChatbotsPage;
   Base = BasePage;
+  Communication = CommunicationPage ;
 
 
   logOut() {

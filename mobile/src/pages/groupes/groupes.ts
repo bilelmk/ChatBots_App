@@ -11,6 +11,7 @@ import {Groupe} from "../../classes/groupe";
 import {GroupeProvider} from "../../providers/groupe/groupe";
 import {AjouterGroupePage} from "./ajouter-groupe/ajouter-groupe";
 import {ModifierGroupePage} from "./modifier-groupe/modifier-groupe";
+import {UserGroupePage} from "./user-groupe/user-groupe";
 
 /**
  * Generated class for the GroupesPage page.
@@ -73,6 +74,15 @@ export class GroupesPage implements OnInit {
       title: 'Actions',
       buttons: [
         {
+          text: 'Ajouter/Supprimer des Utlisateurs',
+          handler: () => {
+            const modal = this.modalCtrl.create(UserGroupePage,{groupe : grp} );
+            modal.present();
+
+          }
+        },
+
+        {
           text: 'Modifier Le Groupe',
           handler: () => {
             const modal = this.modalCtrl.create(ModifierGroupePage,{groupe : grp} );
@@ -80,8 +90,6 @@ export class GroupesPage implements OnInit {
 
           }
         },
-
-
         {
       text: 'Supprimer Le Groupe',
         handler: () => {

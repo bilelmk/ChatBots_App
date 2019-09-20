@@ -27,6 +27,7 @@
                     </div>
 
                 </div>
+
                 <div style="overflow-y: scroll ;height:600px">
                     <div *ngFor="let d of discution" style="display: block !important ; " >
                         <p  *ngIf="d.sender == 'me'" class="me">{{ d.content}}</p>

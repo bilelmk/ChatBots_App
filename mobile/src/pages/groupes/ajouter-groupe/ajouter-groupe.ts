@@ -74,7 +74,11 @@ export class AjouterGroupePage implements OnInit{
     this.groupe.name = form.value.nom ;
     this.groupe.description =form.value.description ;
     this.groupe.isActive = form.value.active === "" ;
-    this.groupe.chatBot = form.value.bot ;
+    if(form.value.chatbot){
+      this.groupe.chatBot = form.value.chatbot ;
+    }else{
+      this.groupe.chatBot = null ;
+    }
 
     this.grpprovider.postGroupe(this.groupe).subscribe(
       (res) => {
@@ -95,7 +99,7 @@ export class AjouterGroupePage implements OnInit{
           cssClass : "fail" }) ;
         toast.present() ;
         loading.dismiss() ;
-        this.groupe = null ;
+        this.groupe = new Groupe() ;
       }
     ) ;
 

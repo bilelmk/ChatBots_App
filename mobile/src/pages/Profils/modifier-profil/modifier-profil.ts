@@ -20,7 +20,7 @@ import {ProfilProvider} from "../../../providers/profil/profil";
 export class ModifierProfilPage implements OnInit{
 
   data : Profil ;
-  InitProfil :Profil ;
+  InitProfil = new Profil ;
 
   userAdd : boolean ;
   userUp : boolean ;
@@ -59,7 +59,15 @@ export class ModifierProfilPage implements OnInit{
     loading.present() ;
 
     this.data = this.navParams.get('profil');
-    this.InitProfil =  this.navParams.get('profil');
+
+    this.InitProfil.id =  this.data.id;
+    this.InitProfil.name =  this.data.name;
+    this.InitProfil.description =  this.data.description;
+    this.InitProfil.isActive =  this.data.isActive;
+    this.InitProfil.users =  this.data.users;
+    this.InitProfil.permisRoles =  this.data.permisRoles;
+
+
 
     this.userAdd = this.data.permisRoles.findIndex(
       (p) => {

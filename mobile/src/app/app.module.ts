@@ -20,9 +20,9 @@ import { GroupeProvider } from '../providers/groupe/groupe';
 import { BaseProvider } from '../providers/base/base';
 import { ChatbotProvider } from '../providers/chatbot/chatbot';
 import { ProfilProvider } from '../providers/profil/profil';
-import {ModifierUtilisateurPage} from "../pages/Utilisateurs/modifier-utilisateur/modifier-utilisateur";
-import {AjouterUtilisateurPage} from "../pages/Utilisateurs/ajouter-utilisateur/ajouter-utilisateur";
-import {AjouterGroupePage} from "../pages/groupes/ajouter-groupe/ajouter-groupe";
+import { ModifierUtilisateurPage} from "../pages/Utilisateurs/modifier-utilisateur/modifier-utilisateur";
+import { AjouterUtilisateurPage} from "../pages/Utilisateurs/ajouter-utilisateur/ajouter-utilisateur";
+import { AjouterGroupePage} from "../pages/groupes/ajouter-groupe/ajouter-groupe";
 import {ModifierGroupePage} from "../pages/groupes/modifier-groupe/modifier-groupe";
 import {AjouterProfilPage} from "../pages/Profils/ajouter-profil/ajouter-profil";
 import {ModifierProfilPage} from "../pages/Profils/modifier-profil/modifier-profil";
@@ -31,6 +31,10 @@ import {AjouterCnPage} from "../pages/base/ajouter-cn/ajouter-cn";
 import {ModifierCnPage} from "../pages/base/modifier-cn/modifier-cn";
 import {ModifierBotPage} from "../pages/chatbots/modifier-bot/modifier-bot";
 import {AjouterBotPage} from "../pages/chatbots/ajouter-bot/ajouter-bot";
+import {CnDetailPage} from "../pages/chatbots/cn-detail/cn-detail";
+import {BotCnPage} from "../pages/chatbots/bot-cn/bot-cn";
+import {UserGroupePage} from "../pages/groupes/user-groupe/user-groupe";
+import {CommunicationPage} from "../pages/communication/communication";
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import {AjouterBotPage} from "../pages/chatbots/ajouter-bot/ajouter-bot";
     AjouterCnPage,
     ModifierCnPage,
     ModifierBotPage,
-    AjouterBotPage
+    AjouterBotPage,
+    CnDetailPage,
+    BotCnPage,
+    UserGroupePage,
+    CommunicationPage
 
 
   ],
@@ -83,7 +91,11 @@ import {AjouterBotPage} from "../pages/chatbots/ajouter-bot/ajouter-bot";
     AjouterCnPage,
     ModifierCnPage,
     ModifierBotPage,
-    AjouterBotPage
+    AjouterBotPage,
+    CnDetailPage,
+    BotCnPage,
+    UserGroupePage,
+    CommunicationPage
 
   ],
   providers: [

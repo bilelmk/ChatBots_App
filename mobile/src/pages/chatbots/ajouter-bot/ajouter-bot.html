@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-row align-items-center>
       <ion-col col-10 align-items-center>
-        <ion-title>Ajouter Un Groupe</ion-title>
+        <ion-title>Ajouter Un ChatBot</ion-title>
       </ion-col>
       <ion-col col-2>
         <button ion-button clear icon-only (click)="dismiss()">
@@ -19,7 +19,7 @@
 
       <ion-row style="margin-bottom: 10px" >
         <ion-col col-5>
-          <label  class="login-label">Nom de Groupe</label>
+          <label  class="login-label">Nom de Chatbot</label>
         </ion-col>
         <ion-col col-12>
           <input color="three" class="login-input" name="nom" ngModel type="text" required  />
@@ -35,18 +35,6 @@
           <textarea color="three" class="login-input" name="description" ngModel type="text"  required
                     style="padding-top:10px ; height: 80px">
           </textarea>
-        </ion-col>
-      </ion-row>
-
-      <ion-row style="margin-bottom: 10px" >
-        <ion-col col-12>
-          <label  class="login-label">Chatbots</label>
-        </ion-col>
-        <ion-col col-12>
-          <ion-select class="login-input" style="max-width: 100% ; background-color : white ; padding-top:10px"
-                      name="chatbot" ngModel >
-            <ion-option *ngFor="let bot of bots" [value]="bot">{{bot.name}}</ion-option>
-          </ion-select>
         </ion-col>
       </ion-row>
 

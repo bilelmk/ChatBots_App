@@ -11,6 +11,8 @@ import {ChatbotProvider} from "../../providers/chatbot/chatbot";
 import {Chatbot} from "../../classes/chatbot";
 import {AjouterBotPage} from "./ajouter-bot/ajouter-bot";
 import {ModifierBotPage} from "./modifier-bot/modifier-bot";
+import {CnDetailPage} from "./cn-detail/cn-detail";
+import {BotCnPage} from "./bot-cn/bot-cn";
 
 /**
  * Generated class for the ChatbotsPage page.
@@ -59,19 +61,36 @@ export class ChatbotsPage implements OnInit {
   add(){
     const modal = this.modalCtrl.create(AjouterBotPage);
     modal.present();
-    // modal.onDidDismiss(
-    //   (res) => {
-    //     if(res.AddedGrp.name != undefined) {
-    //       this.groupes.push(res.AddedGrp)
-    //     }
-    //   }
-    // )
+    modal.onDidDismiss(
+      (res) => {
+        console.log(res.AddedBot)
+        if(res.AddedBot.name != undefined) {
+          this.bots.push(res.AddedBot)
+        }
+      }
+    )
   }
 
   actionSheet(bot : Chatbot) {
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Actions',
       buttons: [
+        {
+          text: 'Liste des Connaissances',
+          handler: () => {
+            const modal = this.modalCtrl.create(CnDetailPage,{bot : bot} );
+            modal.present();
+
+          }
+        },
+        {
+          text: 'Ajouter/Supprimer Connaissance',
+          handler: () => {
+            const modal = this.modalCtrl.create(BotCnPage,{bot : bot} );
+            modal.present();
+
+          }
+        },
         {
           text: 'Modifier Le ChatBot',
           handler: () => {
@@ -80,8 +99,6 @@ export class ChatbotsPage implements OnInit {
 
           }
         },
-
-
         {
           text: 'Supprimer Le ChatBot',
           handler: () => {

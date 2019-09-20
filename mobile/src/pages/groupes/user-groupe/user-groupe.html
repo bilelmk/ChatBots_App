@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row align-items-center>
+      <ion-col col-10 align-items-center>
+        <ion-title>Ajouter/Supprimer Utilisateurs</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="dismiss()">
+          <ion-icon name="md-close" class="nav-icon" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background-color: #e9e2d0;">
+
+  <ion-card class="compte-card" >
+    <ion-grid>
+      <ion-row style="margin-bottom: 10px" >
+
+        <ion-col col-12>
+          <label  class="login-label">Ajouter Des Connaissances</label>
+        </ion-col>
+
+        <ion-col col-10>
+          <ion-select  [(ngModel)]="userToAdd" class="login-input" style="max-width: 100% ; background-color : white ; padding-top:10px"
+                      name="chatbot" ngModel >
+            <ion-option  *ngFor="let user of users" value="{{user.id}}" >{{user.username}}</ion-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col col-2>
+          <button  [disabled]="userToAdd === null"  ion-button clear icon-only (click)="add()">
+            <ion-icon name="add" class="nav-icon" ></ion-icon>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <div *ngIf="!data.users[0]">
+    <ion-card class="compte-card" >
+      <ion-grid>
+        <ion-row  >
+          Pas D'Utilisateurs !!!
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+  <div *ngIf="data.users[0]">
+    <div *ngFor="let user of data.users">
+      <ion-card class="compte-card" >
+        <ion-grid>
+
+          <ion-row>
+            <ion-col col-3>
+              <p class="para1">Nom :</p>
+              <p class="para1">Prenom :</p>
+            </ion-col>
+            <ion-col col-7>
+              <p class="para">{{user.lastName}}</p>
+              <p class="para">{{user.firstName}}</p>
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button clear icon-only (click)="supprimer(user.id , data.id)">
+                <ion-icon name="trash" class="nav-icon" ></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-card>
+    </div>
+  </div>
+
+
+</ion-content>

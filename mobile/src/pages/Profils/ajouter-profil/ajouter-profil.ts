@@ -241,7 +241,7 @@ export class AjouterProfilPage implements  OnInit{
           cssClass : "fail" }) ;
         toast.present() ;
         loading.dismiss() ;
-        this.profil = null ;
+        this.profil = new Profil() ;
       }
     );
   }
