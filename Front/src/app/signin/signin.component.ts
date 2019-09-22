@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ConnectionService} from '../services/connection.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Router} from '@angular/router';
 import {Utilisateur} from '../classes/utilisateur';
+import {NotifService} from '../services/notif.service';
 declare var $: any;
 
 
@@ -13,8 +14,8 @@ declare var $: any;
 export class SigninComponent implements OnInit {
 
     utilisateur : Utilisateur ;
-  constructor(private connectionService: ConnectionService,
-              private router: Router) { }
+  constructor(private connectionService: ConnectionService, private router: Router ,
+              private notif :NotifService) { }
   ngOnInit() {
   }
 
@@ -29,9 +30,12 @@ export class SigninComponent implements OnInit {
               sessionStorage.setItem('id', res.id);
               sessionStorage.setItem('username', res.username);
 
+              this.notif.showNotification('success' , 'Connexion . . .' ,'check_circle_outline')
+
           }
 
-          , (err) => console.log(err)
+          , (err) => {
+              this.notif.showNotification('warning' , 'Nom d\'utilisateur ou Mot de passe incorrect' , 'highlight_off')          }
       )
 
 

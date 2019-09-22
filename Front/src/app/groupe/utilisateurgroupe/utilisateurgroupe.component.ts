@@ -2,8 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Groupe} from '../../classes/groupe';
 import {UtilisateurService} from '../../services/utilisateurs.service';
+import {NotifService} from '../../services/notif.service';
 
-declare var $: any;
 
 @Component({
   selector: 'app-supprimeremp',
@@ -14,9 +14,8 @@ export class UtilisateurgroupeComponent implements OnInit {
 
   userToAdd : number = null ;
   users = [] ;
-  constructor(public dialogRef: MatDialogRef<UtilisateurgroupeComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Groupe,
-              private utilisateurservice : UtilisateurService ) { }
+  constructor(public dialogRef: MatDialogRef<UtilisateurgroupeComponent>, @Inject(MAT_DIALOG_DATA) public data: Groupe,
+              private utilisateurservice : UtilisateurService , private notif : NotifService ) { }
 
 
   ngOnInit() {
@@ -54,7 +53,12 @@ export class UtilisateurgroupeComponent implements OnInit {
                   }
               ),1
           )
+            this.notif.showNotification('success' , 'Utilisateur Supprimé Avec Succès' ,'check_circle_outline' );
+            this.dialogRef.close();
         },
+        (err) => {
+            this.notif.showNotification('warning' , 'Opération De Suppression Echoué' , 'highlight_off')
+        }
     )
   }
 
@@ -83,7 +87,12 @@ export class UtilisateurgroupeComponent implements OnInit {
                 }
               }
           )
+            this.notif.showNotification('success' , 'Utilisateur Ajouter Avec Succès' ,'check_circle_outline' );
+            this.dialogRef.close();
 
+        },
+        (err) =>{
+            this.notif.showNotification('warning' , 'Opération D\'ajout Echoué' , 'highlight_off')
         }
     )
 
