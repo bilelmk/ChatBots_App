@@ -21,6 +21,18 @@
 
 
 <ion-content padding style="background-color: #e9e2d0;">
+
+  <ion-card class="compte-card" *ngIf="resolve()">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <p class="para1" >Il y'a aucun profil</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
   <div *ngFor="let profil of profils">
     <ion-card class="compte-card" >
       <ion-grid>

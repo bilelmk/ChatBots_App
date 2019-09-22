@@ -43,6 +43,8 @@ export class GroupesPage implements OnInit {
     this.grpprovider.getGroupes().subscribe(
       (res) => {
         this.groupes = res ;
+        console.log(this.groupes)
+
         loading.dismiss() ;
       },
       (err) => {
@@ -54,6 +56,18 @@ export class GroupesPage implements OnInit {
           loading.dismiss() ;
       }
     );
+  }
+
+  resolve(){
+    if(this.groupes == null ){
+      return true
+    }
+    else if(this.groupes.length == 0){
+      return true
+    }
+    else {
+      return false
+    }
   }
 
 

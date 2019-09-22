@@ -21,6 +21,17 @@
 
 
   <ion-content padding style="background-color: #e9e2d0;">
+
+    <ion-card class="compte-card" *ngIf="resolve()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <p class="para1" >Il y'a aucun utilisateur</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
     <div *ngFor="let user of Utilisateurs">
       <ion-card class="compte-card" >
         <ion-grid>
@@ -32,13 +43,13 @@
               <ion-icon (click)="actionSheet(user)" name="more" class="menu"></ion-icon>
             </ion-col>
           </ion-row>
-
           <ion-row  >
             <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Informations de base</p></ion-col>
             <ion-col col-6>
               <p class="para1">Nom d'Utilisateur :</p>
               <p class="para1">Matricule :</p>
               <p class="para1">E-mail :</p>
+              <p class="para1">Profil :</p>
               <p class="para1">Active :</p>
               <p class="para1">Role :</p>
             </ion-col>
@@ -47,6 +58,7 @@
               <p class="para">{{user.username}}</p>
               <p class="para">{{user.matricule}}</p>
               <p class="para">{{user.email}}</p>
+              <p class="para">{{user.profil ? user.profil.name : 'Pas de Profil'}}</p>
               <p class="para">{{user.isActive}}</p>
               <p class="para">{{user.isAdminGroup ? 'Groupe Admin' : ''}} {{user.isSuperUser ? 'Admin' : ''}}</p>
             </ion-col>
@@ -54,7 +66,12 @@
 
           <ion-row margin-top="20"  >
             <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Groupes</p></ion-col>
-            <ion-col col-6>
+
+            <ion-col col-12 *ngIf="!user.groupes[0]">
+                <p text-center class="para">Pas de groupe pour cet utilisateur</p>
+            </ion-col>
+
+            <ion-col col-6 *ngIf="user.groupes">
               <div *ngFor="let grp of user.groupes">
                 <p class="para1">Nom du Groupe :</p>
               </div>

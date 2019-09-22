@@ -71,6 +71,18 @@ export class ChatbotsPage implements OnInit {
     )
   }
 
+  resolve(){
+    if(this.bots == null ){
+      return true
+    }
+    else if(this.bots.length == 0){
+      return true
+    }
+    else {
+      return false
+    }
+  }
+
   actionSheet(bot : Chatbot) {
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Actions',
@@ -84,7 +96,7 @@ export class ChatbotsPage implements OnInit {
           }
         },
         {
-          text: 'Ajouter/Supprimer Connaissance',
+          text: 'Ajouter/Supprimer Des Connaissances',
           handler: () => {
             const modal = this.modalCtrl.create(BotCnPage,{bot : bot} );
             modal.present();

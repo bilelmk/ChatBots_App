@@ -14,9 +14,7 @@ export class ProfilProvider {
 
   path :String = 'http://localhost:8181/' ;
 
-  constructor(public http: HttpClient) {
-    console.log('Hello ProfilProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
 
   getProfils() : Observable<Profil[]>{
     return this.http.get<Profil[]>(this.path +'profil' );

@@ -43,6 +43,8 @@ export class AjouterGroupePage implements OnInit{
                 })
               }
             )
+            loading.dismiss() ;
+
           },
           (error) =>{
             let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
@@ -50,6 +52,8 @@ export class AjouterGroupePage implements OnInit{
               position: 'bottom',
               cssClass : "fail" }) ;
             toast.present() ;
+            loading.dismiss() ;
+
           }
         )
       }
@@ -60,9 +64,10 @@ export class AjouterGroupePage implements OnInit{
           position: 'bottom',
           cssClass : "fail" }) ;
           toast.present() ;
+          loading.dismiss() ;
+
       }
     ) ;
-    loading.dismiss() ;
   }
 
   Add(form){

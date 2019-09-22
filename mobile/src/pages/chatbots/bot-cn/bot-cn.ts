@@ -44,6 +44,7 @@ export class BotCnPage {
             this.cns.push(cn)
           }
         }
+        loading.dismiss() ;
       },
       (err) => {
         let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
@@ -51,9 +52,10 @@ export class BotCnPage {
           position: 'bottom',
           cssClass : "fail" }) ;
         toast.present() ;
+        loading.dismiss() ;
+
       }
     );
-    loading.dismiss() ;
   }
 
 
@@ -81,7 +83,7 @@ export class BotCnPage {
           ),1
         )
         loading.dismiss()
-        let toast = this.toastCtrl.create({message: 'Connaissance supprimer avec succès',
+        let toast = this.toastCtrl.create({message: 'Connaissance supprimer avec succèes',
           duration: 3000,
           position: 'bottom',
           cssClass : "succes" }) ;
@@ -127,7 +129,7 @@ export class BotCnPage {
               }}
             this.cnToAdd  = null ;
             loading.dismiss()
-            let toast = this.toastCtrl.create({message: 'Connaissance ajouté avec succès',
+            let toast = this.toastCtrl.create({message: 'Connaissance ajoutée avec succès',
               duration: 3000,
               position: 'bottom',
               cssClass : "succes" }) ;

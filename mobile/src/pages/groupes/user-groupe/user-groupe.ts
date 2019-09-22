@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, LoadingController, NavController, NavParams, ToastController, ViewController} from 'ionic-angular';
-import {BaseProvider} from "../../../providers/base/base";
 import {UtilisateurProvider} from "../../../providers/utilisateur/utilisateur";
 import {Groupe} from "../../../classes/groupe";
 
@@ -47,6 +46,7 @@ export class UserGroupePage implements OnInit{
             this.users.push(user)
           }
         }
+        loading.dismiss();
       },
       (err) => {
         let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
@@ -54,10 +54,10 @@ export class UserGroupePage implements OnInit{
           position: 'bottom',
           cssClass : "fail" }) ;
         toast.present() ;
+        loading.dismiss();
       }
     );
 
-    loading.dismiss();
   }
 
 
@@ -84,7 +84,7 @@ export class UserGroupePage implements OnInit{
           ),1
         );
         loading.dismiss()
-        let toast = this.toastCtrl.create({message: 'Utilisateur ajouté avec succès',
+        let toast = this.toastCtrl.create({message: 'Utilisateur supprimé avec succès',
           duration: 3000,
           position: 'bottom',
           cssClass : "succes" }) ;

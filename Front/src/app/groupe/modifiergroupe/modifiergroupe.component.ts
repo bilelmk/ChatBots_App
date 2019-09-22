@@ -41,6 +41,12 @@ export class ModifiergroupeComponent implements OnInit {
   modifier(){
       console.log(this.data)
       this.groupeService.putGroupe(this.data).subscribe(
+          (res)=> {
+              console.log(res)
+          },
+          (err) => {
+              console.log(err)
+          }
   ) ;
 
     this.dialogRef.close();

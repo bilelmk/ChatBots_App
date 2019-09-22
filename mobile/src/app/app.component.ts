@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { LoadingController, Nav, Platform } from 'ionic-angular';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {LoadingController, ModalController, Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from "@ionic/storage" ;
@@ -13,6 +13,10 @@ import {GroupesPage} from "../pages/groupes/groupes";
 import {ChatbotsPage} from "../pages/chatbots/chatbots";
 import {BasePage} from "../pages/base/base";
 import {CommunicationPage} from "../pages/communication/communication";
+import {MonComptePage} from "../pages/mon-compte/mon-compte";
+import {Utilisateur} from "../classes/utilisateur";
+import {UtilisateurProvider} from "../providers/utilisateur/utilisateur";
+import {PermissionProvider} from "../providers/permission/permission";
 
 
 
@@ -22,6 +26,8 @@ import {CommunicationPage} from "../pages/communication/communication";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+
+  utilisateur = new Utilisateur ;
 
   rootPage:any = LoginPage;
   Utilisateur = UtilisateurPage;
@@ -34,7 +40,8 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar,
               splashScreen: SplashScreen , private loadingCtrl : LoadingController ,
-              private storage : Storage ) {
+              private storage : Storage , private modalCtrl : ModalController ,
+              private per : PermissionProvider) {
 
     platform.ready().then(() => {
       statusBar.styleDefault();
@@ -42,10 +49,21 @@ export class MyApp {
     });
   }
 
+
+  isAdmin(){
+    return this.per.admin ;
+  }
+
+  isGrp(){
+    return this.per.grp ;
+  }
+
+
+
   logOut() {
     const loading = this.loadingCtrl.create({
       content:" Déconnexion . . . . "
-    })
+    });
     loading.present();
     this.storage.remove('user');
     this.nav.setRoot(LoginPage) ;
@@ -54,6 +72,11 @@ export class MyApp {
 
   openPage(p:any){
     this.nav.setRoot(p) ;
+  }
+
+  openCompte(){
+    const modal = this.modalCtrl.create(MonComptePage);
+    modal.present();
   }
 }
 

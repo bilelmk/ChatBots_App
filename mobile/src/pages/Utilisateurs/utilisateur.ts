@@ -1,5 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ActionSheetController, AlertController, IonicPage, LoadingController, ModalController} from 'ionic-angular';
+import {
+  ActionSheetController,
+  AlertController,
+  IonicPage,
+  LoadingController,
+  ModalController,
+  ToastController
+} from 'ionic-angular';
 import {Utilisateur} from "../../classes/utilisateur";
 import {UtilisateurProvider} from "../../providers/utilisateur/utilisateur";
 import {ModifierUtilisateurPage} from "./modifier-utilisateur/modifier-utilisateur";
@@ -20,28 +27,52 @@ export class UtilisateurPage implements OnInit {
   Utilisateurs: Utilisateur[] = null ;
   constructor(private  utilisateurprovider : UtilisateurProvider, private loadingCtrl : LoadingController ,
               private actionSheetCtrl : ActionSheetController , private modalCtrl : ModalController ,
-              private  alertCtrl : AlertController ) { }
+              private  alertCtrl : AlertController , private toastCtrl : ToastController ) { }
 
   ngOnInit() {
     const loading = this.loadingCtrl.create({
       content:" Loading . . . . "
     });
     loading.present() ;
+
     this.utilisateurprovider.getUsers().subscribe(
       (res) => {
         this.Utilisateurs = res ;
-        console.log(res)
+        loading.dismiss() ;
+      },
+      (err) =>{
+          let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
+            duration: 3000,
+            position: 'bottom',
+            cssClass : "fail" }) ;
+          toast.present() ;
+          loading.dismiss() ;
       }
-    )
-
-
-    loading.dismiss() ;
+    );
   }
 
   add(){
-    console.log("wwww")
     const modal = this.modalCtrl.create(AjouterUtilisateurPage);
     modal.present();
+    modal.onDidDismiss(
+      (res) => {
+        if(res.AddedUser.id != undefined) {
+          this.Utilisateurs.push(res.AddedUser)
+        }
+      }
+    )
+  }
+
+  resolve(){
+    if(this.Utilisateurs == null ){
+      return true
+    }
+    else if(this.Utilisateurs.length == 0){
+      return true
+    }
+    else {
+      return false
+    }
   }
 
 
@@ -57,11 +88,12 @@ export class UtilisateurPage implements OnInit {
 
           }
         },
+
         {
           text: 'Supprimer L\'utilisateur',
           handler: () => {
             const prompt = this.alertCtrl.create({
-              title: 'Supprimer Utilisateurs',
+              title: 'Supprimer L\'Utilisateurs',
               message: "",
               buttons: [
                 {
@@ -75,7 +107,23 @@ export class UtilisateurPage implements OnInit {
                   handler: data => {
                     this.utilisateurprovider.DeleteUser(user.id).subscribe(
                       (res) => {
-                        console.log(res)
+                        this.Utilisateurs.splice(this.Utilisateurs.findIndex(
+                          (g) => {return g.id == user.id}
+                        ),1);
+
+                        let toast = this.toastCtrl.create({message: 'Utilisateurs supprimé avec succès',
+                          duration: 3000,
+                          position: 'bottom',
+                          cssClass : "succes" }) ;
+                        toast.present() ;
+
+                      },
+                      (err) => {
+                        let toast = this.toastCtrl.create({message: 'Erreur lors de la suppression',
+                          duration: 3000,
+                          position: 'bottom',
+                          cssClass : "fail" }) ;
+                        toast.present() ;
                       }
                     ) ;}
                 }

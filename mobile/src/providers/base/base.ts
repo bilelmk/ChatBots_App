@@ -14,9 +14,8 @@ export class BaseProvider {
 
   path :String = 'http://localhost:8181/' ;
 
-  constructor(public http: HttpClient) {
-    console.log('Hello BaseProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
+
   getConnaissances() : Observable<Connaissance[]>{
     return this.http.get<Connaissance[]>(this.path + 'knowledgeBase' );
   }

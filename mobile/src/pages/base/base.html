@@ -21,6 +21,18 @@
 
 
 <ion-content padding style="background-color: #e9e2d0;">
+
+  <ion-card class="compte-card" *ngIf="resolve()">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <p class="para1" >Il y'a aucune connaissance</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
   <div *ngFor="let cn of cns">
     <ion-card class="compte-card" >
       <ion-grid>
@@ -44,6 +56,12 @@
 
         <ion-row margin-top="20"  >
           <ion-col col-12 style="border-bottom: 1px solid darkgray"><p class="session">Chatbots</p></ion-col>
+
+
+          <ion-col col-12 *ngIf="cn.chatBots[0] ==  null">
+            <p text-center class="para">Pas de chatbot qui connait cette information</p>
+          </ion-col>
+
           <ion-col col-6 *ngIf="cn.chatBots[0] !=  null">
             <div *ngFor="let bot of cn.chatBots">
               <p class="para1">Nom du Chatbot :</p>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams, ToastController, ViewController} from 'ionic-angular';
+import {Connaissance} from "../../../classes/connaissance";
+import {BaseProvider} from "../../../providers/base/base";
 
 /**
  * Generated class for the ModifierCnPage page.
@@ -15,11 +17,56 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ModifierCnPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cn = new Connaissance() ;
+  constructor(public navCtrl: NavController, public navParams: NavParams ,private loadingCtrl :LoadingController
+              , private toastCtrl: ToastController , private viewCtrl : ViewController ,private cnprovider : BaseProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModifierCnPage');
+  ngOnInit() {
+    const loading = this.loadingCtrl.create({
+      content:" Loading . . . . "
+    });
+    loading.present() ;
+
+    this.cn = this.navParams.get('cn') ;
+
+    loading.dismiss() ;
+  }
+
+
+  modifier(){
+    const loading = this.loadingCtrl.create({
+      content:" Loading . . . . "
+    });
+    loading.present() ;
+
+    this.cnprovider.putConnaissance(this.cn).subscribe(
+      (res) => {
+        let toast = this.toastCtrl.create({message: 'Connaissance modifié avec succès',
+          duration: 3000,
+          position: 'bottom',
+          cssClass : "succes" }) ;
+        toast.present() ;
+        loading.dismiss() ;
+
+        this.viewCtrl.dismiss();
+      },
+
+      (err) => {
+        let toast = this.toastCtrl.create({message: 'Erreur lors de modification',
+          duration: 3000,
+          position: 'bottom',
+          cssClass : "fail" }) ;
+        toast.present() ;
+        loading.dismiss() ;
+      }
+    )
+  }
+
+
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
 }

@@ -53,6 +53,17 @@ export class BasePage implements OnInit {
 
   }
 
+  resolve(){
+    if(this.cns == null ){
+      return true
+    }
+    else if(this.cns.length == 0){
+      return true
+    }
+    else {
+      return false
+    }
+  }
 
 
   add(){
@@ -72,17 +83,8 @@ export class BasePage implements OnInit {
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Actions',
       buttons: [
-  //       {
-  //         text: 'Détails de Profil',
-  //         handler: () => {
-  //           const modal = this.modalCtrl.create(DetailProfilPage,{profil : profil} );
-  //           modal.present();
-  //
-  //         }
-  //       },
-  //
         {
-          text: 'Modifier Le Profil',
+          text: 'Modifier La Connaissance',
           handler: () => {
             const modal = this.modalCtrl.create(ModifierCnPage,{cn : cn} );
             modal.present();

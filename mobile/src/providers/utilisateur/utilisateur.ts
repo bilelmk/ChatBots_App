@@ -12,6 +12,7 @@ import {Groupe} from "../../classes/groupe";
 */
 @Injectable()
 export class UtilisateurProvider {
+
   path :String = 'http://localhost:8181/' ;
 
   constructor(public http: HttpClient) {}
@@ -42,5 +43,9 @@ export class UtilisateurProvider {
 
   AddUserToGroup(user: number , grp : Groupe){
     return this.http.post(this.path + '/user/'+user , grp)
+  }
+
+  verify(){
+    return true ;
   }
 }

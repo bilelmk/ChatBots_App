@@ -14,9 +14,8 @@ export class GroupeProvider {
 
   path :String = 'http://localhost:8181/' ;
 
-  constructor(public http: HttpClient) {
-    console.log('Hello GroupeProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
+
   getGroupes() : Observable<Groupe[]>{
     return this.http.get<Groupe[]>(this.path + 'group' );
   }

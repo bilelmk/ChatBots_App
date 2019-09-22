@@ -19,14 +19,14 @@
 </ion-header>
 
 <div  padding>
-  <ion-grid style="margin-top: 70px">
+  <ion-grid style="margin-top: 70px" *ngIf="admin">
     <ion-row>
 
       <ion-col  col-4 offset-1>
         <a  [navPush]="Communication">
           <img src="../../assets/imgs/msg.png">
         </a>
-        <p class="menu-text" text-center>Communiquer avec le Chatbot</p>
+        <p class="menu-text" text-center>Communiquer avec les Chatbots</p>
       </ion-col>
 
       <ion-col col-4 offset-2>
@@ -74,5 +74,55 @@
     </ion-row>
 
   </ion-grid>
+
+
+
+
+  <ion-grid style="margin-top: 70px" *ngIf="grp">
+    <ion-row>
+
+      <ion-col  col-4 offset-1>
+        <a  [navPush]="Communication">
+          <img src="../../assets/imgs/msg.png">
+        </a>
+        <p class="menu-text" text-center>Communiquer avec les Chatbots</p>
+      </ion-col>
+
+      <ion-col col-4 offset-2>
+        <a [navPush]="Base">
+          <img src="../../assets/imgs/parametre.png">
+        </a>
+        <p class="menu-text" text-center>Bases de connaissance</p>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+
+      <ion-col  col-4 offset-4>
+        <a  [navPush]="ChatBot">
+          <img src="../../assets/imgs/budget.png">
+        </a>
+        <p class="menu-text" text-center>ChatBots</p>
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-grid>
+
+
+
+  <ion-grid style="margin-top: 80px" *ngIf="!(grp || admin)">
+    <ion-row>
+      <ion-col  col-4 offset-4>
+        <a  [navPush]="Communication">
+          <img src="../../assets/imgs/msg.png">
+        </a>
+        <p class="menu-text" text-center>Communiquer avec les Chatbots</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
 </div>

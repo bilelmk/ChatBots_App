@@ -41,18 +41,16 @@ export class LoginPage implements OnInit{
 
 
   logForm(form) {
-    console.log(form.value.login)
-    console.log(form.value.pass)
-
     const loading = this.loadingCtrl.create({
       content:" Connexion . . . . "
-    })
+    });
     loading.present() ;
+
     this.userprovider.login(form.value.login , form.value.pass).subscribe(
       (resp)=> {
         this.Utilisateur = resp ;
-        console.log(resp)
         this.storage.set('user' , resp) ;
+        sessionStorage.setItem('admin' , this.Utilisateur.isSuperUser.toString())
         this.navCtrl.setRoot(HomePage);
         loading.dismiss()
       },

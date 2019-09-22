@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Utilisateur} from "../../classes/utilisateur";
 import {Groupe} from "../../classes/groupe";
 import {Chatbot} from "../../classes/chatbot";
@@ -26,7 +26,7 @@ export class CommunicationPage implements  OnInit{
   selectedBot: Chatbot = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , private utilisateurprovider : UtilisateurProvider ,
-              private storage : Storage) {
+              private storage : Storage , private loadingCtrl : LoadingController , private toastCtrl : ToastController) {
   }
 
   selectMsg() :string{
@@ -54,6 +54,10 @@ export class CommunicationPage implements  OnInit{
   }
 
   ngOnInit() {
+    const loading = this.loadingCtrl.create({
+      content:" Loading . . . . "
+    });
+    loading.present() ;
 
     let id ;
 
@@ -69,10 +73,22 @@ export class CommunicationPage implements  OnInit{
                 }
               ) ;
               this.groupes = this.Utilisateur.groupes ;
+              loading.dismiss()
+
+            },
+            (err) => {
+                let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
+                  duration: 3000,
+                  position: 'bottom',
+                  cssClass : "fail" }) ;
+                toast.present() ;
+              loading.dismiss()
             }
           )
         }
       });
+
+
   }
 
   msg(input : any){

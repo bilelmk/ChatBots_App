@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams, ToastController, ViewController} from 'ionic-angular';
+import {Chatbot} from "../../../classes/chatbot";
+import {ChatbotProvider} from "../../../providers/chatbot/chatbot";
 
 /**
  * Generated class for the ModifierBotPage page.
@@ -15,11 +17,57 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ModifierBotPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  bot = new Chatbot() ;
+  constructor(public navCtrl: NavController, public navParams: NavParams ,private loadingCtrl :LoadingController
+              , private toastCtrl: ToastController , private viewCtrl : ViewController ,
+              private botprovider : ChatbotProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModifierBotPage');
+  ngOnInit() {
+    const loading = this.loadingCtrl.create({
+      content:" Loading . . . . "
+    });
+    loading.present() ;
+
+    this.bot = this.navParams.get('bot') ;
+
+    loading.dismiss() ;
+  }
+
+
+  modifier(){
+    const loading = this.loadingCtrl.create({
+      content:" Loading . . . . "
+    });
+    loading.present() ;
+
+    this.botprovider.putChatbots(this.bot).subscribe(
+      (res) => {
+        let toast = this.toastCtrl.create({message: 'Chatbot modifié avec succès',
+          duration: 3000,
+          position: 'bottom',
+          cssClass : "succes" }) ;
+        toast.present() ;
+        loading.dismiss() ;
+
+        this.viewCtrl.dismiss();
+      },
+
+      (err) => {
+        let toast = this.toastCtrl.create({message: 'Erreur lors de modification',
+          duration: 3000,
+          position: 'bottom',
+          cssClass : "fail" }) ;
+        toast.present() ;
+        loading.dismiss() ;
+      }
+    )
+  }
+
+
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
 }

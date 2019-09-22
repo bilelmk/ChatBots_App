@@ -21,6 +21,7 @@ export class ModifierGroupePage implements OnInit{
 
   bots : Chatbot[] = null ;
   groupe = new Groupe() ;
+  // initGrp = new Groupe() ;
   constructor(public navCtrl: NavController ,private loadingCtrl :LoadingController ,
     private grpprovider : GroupeProvider , private botprovider : ChatbotProvider , private viewCtrl : ViewController ,
     private toastCtrl : ToastController , private navParams : NavParams) {
@@ -33,7 +34,13 @@ export class ModifierGroupePage implements OnInit{
     loading.present() ;
 
     this.groupe = this.navParams.get('groupe') ;
-    console.log(this.groupe)
+
+    // this.initGrp.id = this.groupe.id ;
+    // this.initGrp.name = this.groupe.name ;
+    // this.initGrp.description = this.groupe.description ;
+    // this.initGrp.isActive = this.groupe.isActive ;
+    // this.initGrp.chatBot = this.groupe.chatBot ;
+    // this.initGrp.users = this.groupe.users
 
     this.grpprovider.getGroupesBots().then(
       botsindex => {
@@ -45,7 +52,10 @@ export class ModifierGroupePage implements OnInit{
                   return (i == chb.id)
                 })
               }
-            )
+            );
+            if(this.groupe.chatBot){
+              this.bots.push(this.groupe.chatBot)
+            }
           },
           (error) =>{
             let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
@@ -69,43 +79,37 @@ export class ModifierGroupePage implements OnInit{
   }
 
 
-  // modifier(form){
-  //   const loading = this.loadingCtrl.create({
-  //     content:" Loading . . . . "
-  //   });
-  //   loading.present() ;
-  //
-  //   this.groupe.name = form.value.nom ;
-  //   this.groupe.description =form.value.description ;
-  //   this.groupe.isActive = form.value.active === "" ;
-  //   this.groupe.chatBot = form.value.bot ;
-  //
-  //   this.grpprovider.postGroupe(this.groupe).subscribe(
-  //     (res) => {
-  //       let toast = this.toastCtrl.create({message: 'Groupe ajouté avec succès',
-  //         duration: 3000,
-  //         position: 'bottom',
-  //         cssClass : "succes" }) ;
-  //       toast.present() ;
-  //       loading.dismiss() ;
-  //       form.reset();
-  //       this.viewCtrl.dismiss({AddedGrp: this.groupe});
-  //     },
-  //
-  //     (err) => {
-  //       let toast = this.toastCtrl.create({message: 'Erreur lors de l\'ajout',
-  //         duration: 3000,
-  //         position: 'bottom',
-  //         cssClass : "fail" }) ;
-  //       toast.present() ;
-  //       loading.dismiss() ;
-  //       this.groupe = null ;
-  //     }
-  //   )
-  // }
+  modifier(){
+    const loading = this.loadingCtrl.create({
+      content:" Loading . . . . "
+    });
+    loading.present() ;
+
+    this.grpprovider.putGroupe(this.groupe).subscribe(
+      (res) => {
+        let toast = this.toastCtrl.create({message: 'Groupe modifié avec succès',
+          duration: 3000,
+          position: 'bottom',
+          cssClass : "succes" }) ;
+        toast.present() ;
+        loading.dismiss() ;
+
+        this.viewCtrl.dismiss();
+      },
+
+      (err) => {
+        let toast = this.toastCtrl.create({message: 'Erreur lors de modification',
+          duration: 3000,
+          position: 'bottom',
+          cssClass : "fail" }) ;
+        toast.present() ;
+        loading.dismiss() ;
+      }
+    )
+  }
 
   dismiss() {
-    this.viewCtrl.dismiss({AddedGrp: this.groupe});
+    this.viewCtrl.dismiss();
   }
 
 }

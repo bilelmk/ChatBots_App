@@ -16,6 +16,13 @@
         Home
       </button>
 
+      <button   ion-item style="background-color: rgba(249,180,50,0.05);
+                              font-weight: bold; font-size: 90%;color:  #ffe8d5"
+               menuClose (click)="openCompte()">
+        <ion-icon  item-left name="contact"></ion-icon>
+        Mon Compte
+      </button>
+
       <button  ion-item style="background-color: rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color:  #ffe8d5"
                menuClose (click)="openPage(com)">
@@ -23,35 +30,35 @@
         Communication avec les ChatBots
       </button>
 
-      <button  ion-item style="background-color: rgba(249,180,50,0.05);
+      <button *ngIf="isAdmin()" ion-item style="background-color: rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color:  #ffe8d5"
                               menuClose (click)="openPage(Utilisateur)">
-        <ion-icon  item-left name="contact"></ion-icon>
+        <ion-icon  item-left name="happy"></ion-icon>
         Utilisateurs
       </button>
 
-      <button   ion-item style="background-color:  rgba(249,180,50,0.05);
+      <button *ngIf="isAdmin()"  ion-item style="background-color:  rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color:  #ffe8d5"
                               menuClose (click)="openPage(Profil)">
         <ion-icon   item-left name="key"></ion-icon>
         Profils
       </button>
 
-      <button  ion-item style="background-color:  rgba(249,180,50,0.05);
+      <button *ngIf="isAdmin()" ion-item style="background-color:  rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color:  #ffe8d5"
                               menuClose (click)="openPage(Groupe)">
         <ion-icon  item-left name="people"></ion-icon>
         Groupes
       </button>
 
-      <button ion-item style="background-color: rgba(249,180,50,0.05);
+      <button *ngIf="isGrp()" ion-item style="background-color: rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color: #ffe8d5"
                               menuClose (click)="openPage(ChatBot)">
         <ion-icon  item-left name="logo-reddit"></ion-icon>
         ChatBots
       </button>
 
-      <button  ion-item style="background-color:  rgba(249,180,50,0.05);
+      <button *ngIf="isGrp()" ion-item style="background-color:  rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color:  #ffe8d5"
                               menuClose (click)="openPage(Base)">
         <ion-icon item-left name="chatbubbles"></ion-icon>

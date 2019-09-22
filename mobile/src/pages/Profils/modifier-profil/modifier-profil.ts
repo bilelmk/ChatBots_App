@@ -184,6 +184,7 @@ export class ModifierProfilPage implements OnInit{
     });
     loading.present() ;
 
+    this.data.permisRoles = []
     /******* User ********/
     if(this.userAdd){
       let p = new Permission  ;
@@ -334,6 +335,8 @@ export class ModifierProfilPage implements OnInit{
       p.role ="BASE_CONNAISSANCE" ;
       this.data.permisRoles.push(p)
     }
+
+    console.log(this.data)
 
     this.profilprovider.putProfil(this.data).subscribe(
       res =>{

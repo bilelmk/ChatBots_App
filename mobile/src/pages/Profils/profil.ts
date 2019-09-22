@@ -59,7 +59,17 @@ export class ProfilPage implements OnInit {
   }
 
 
-
+  resolve(){
+    if(this.profils == null ){
+      return true
+    }
+    else if(this.profils.length == 0){
+      return true
+    }
+    else {
+      return false
+    }
+  }
 
 
   add(){

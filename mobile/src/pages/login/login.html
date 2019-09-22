@@ -1,16 +1,16 @@
 
-<div padding>
+<ion-content padding style="background-color: #e9e2d0" >
   <ion-grid class="logo">
     <ion-row>
       <img style="height: 170px" src="../../assets/imgs/login.png" />
     </ion-row>
   </ion-grid>
 
-    <form #form="ngForm" (ngSubmit)="logForm(form)" >
+    <form #form="ngForm" (ngSubmit)="logForm(form)"  >
       <ion-grid>
         <ion-row>
           <ion-col col-5>
-            <label  class="login-label">Numéro Utilisateur</label>
+            <label  class="login-label">Nom d'utilisateur</label>
           </ion-col>
           <ion-col col-12>
             <input color="three" class="login-input" name="login" ngModel type="text" required  />
@@ -36,4 +36,4 @@
     </form>
 
 
-</div>
+</ion-content>

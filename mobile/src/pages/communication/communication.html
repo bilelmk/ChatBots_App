@@ -14,8 +14,9 @@
 </ion-header>
 
 
-<ion-content padding style="background-color: #e9e2d0;">
-    <ion-card class="compte-card" >
+<ion-content padding style="background-color: #e9e2d0; height: 100%;">
+
+    <ion-card class="compte-card"  >
       <ion-grid>
         <ion-row>
           <ion-col col-12>
@@ -36,12 +37,12 @@
     </ion-card>
 
 
-  <ion-card class="compte-card" style="height: 78%">
+  <ion-card class="compte-card" style="height:32em">
     <ion-grid>
 
       <ion-row>
         <ion-col col-12>
-          <div style="overflow-y: scroll ;height:30em">
+          <div style="overflow-y: scroll ;height:25em">
             <div *ngFor="let d of discution" >
 
               <ion-row *ngIf="d.sender == 'me'" justify-content-start>

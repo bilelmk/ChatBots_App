@@ -37,6 +37,7 @@ export class AjouterCnPage implements OnInit{
     this.botprovider.getChatbots().subscribe(
       (res) =>{
         this.bots = res ;
+        loading.dismiss()
       },
       (err) => {
         let toast = this.toastCtrl.create({message: 'On ne peut pas atteindre le serveur',
@@ -44,8 +45,8 @@ export class AjouterCnPage implements OnInit{
           position: 'bottom',
           cssClass : "fail" }) ;
         toast.present() ;
-    });
-  loading.dismiss()
+        loading.dismiss()
+      });
   }
 
   Add(form){
