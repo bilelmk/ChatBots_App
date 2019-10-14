@@ -2,10 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Profil} from '../../classes/profil';
 import {ProfilService} from '../../services/profil.service';
-import {NgForm} from '@angular/forms';
 import {Permission} from '../../classes/permission';
 import {NotifService} from '../../services/notif.service';
-declare var $: any;
 
 @Component({
   selector: 'app-modifieremp',
@@ -38,7 +36,8 @@ export class ModifierprofilComponent implements OnInit {
   baseDel : boolean ;
   baseCom : boolean ;
 
-  constructor(public dialogRef: MatDialogRef<ModifierprofilComponent>, @Inject(MAT_DIALOG_DATA) public data: Profil,
+  constructor(public dialogRef: MatDialogRef<ModifierprofilComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: Profil,
               private profilservice : ProfilService, private notif : NotifService
   ) { }
 

@@ -31,9 +31,18 @@
                     </div>
                     <div class="card-body">
 
-                        <div class="table-responsive">
+                        <div *ngIf="resolve()">
+                            <p style="text-align: center">Il y'a aucun Utilisateur</p>
+                        </div>
+
+                        <div class="table-responsive" *ngIf="!resolve()">
                             <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-hover table" matSort>
                                      <!--isActive  isAdminGroup  groupes-->
+                                <ng-container matColumnDef="img">
+                                    <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                                    <td  mat-cell *matCellDef="let element" > <span class="first-lettre">{{getFirst(element.username)}}</span> </td>
+                                </ng-container>
+
                                 <ng-container matColumnDef="username">
                                     <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Nom d'utilisateur </th>
                                     <td  mat-cell *matCellDef="let element"> {{element.username}} </td>

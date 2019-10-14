@@ -26,6 +26,7 @@ public class KnowledgeBaseService {
         KnowledgeBase knowledgeBase=knowledgeBaseRepository.findById(baseDetails.getId()).orElseThrow(()->new ValidationException("not found"));
         knowledgeBase.setQuestion(baseDetails.getQuestion());
         knowledgeBase.setReponse(baseDetails.getReponse());
+        knowledgeBase.setActive(baseDetails.isActive());
         return knowledgeBaseRepository.save(knowledgeBase);
     }
     public void deleteKnowledgeBase(Long id){

@@ -1,5 +1,4 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Chatbot} from '../../classes/chatbot';
 import {ChatbotsService} from '../../services/chatbots.service';
@@ -32,7 +31,6 @@ export class ChatbotlearnComponent implements OnInit {
               this.cns.push(cn)
             }
           }
-          console.log(this.cns)
         }
     )
   }
@@ -45,8 +43,6 @@ export class ChatbotlearnComponent implements OnInit {
         }
     );
 
-    console.log(cn)
-
     this.cnservice.DeleteCnFromBot(connaissance,bot).subscribe(
         (res) => {
           this.cns.push(cn)
@@ -57,8 +53,10 @@ export class ChatbotlearnComponent implements OnInit {
                   }
               ),1
           )
-        },
-    )
+            this.notif.showNotification('success' , 'Connaissance Supprimé Avec Succès' ,'check_circle_outline' );
+        }, (err) => {
+            this.notif.showNotification('warning' , 'Opération De Suppression Echoué' , 'highlight_off')
+        })
   }
 
 
@@ -83,10 +81,12 @@ export class ChatbotlearnComponent implements OnInit {
                     this.cns.push(cn)
                   }
                 }
-                console.log(this.cns)
               }
-          )
-
+          );
+            this.notif.showNotification('success' , 'Connaissance Ajouter Avec Succès' ,'check_circle_outline' );
+        },
+        (err) => {
+            this.notif.showNotification('warning' , 'Opération D\'ajout Echoué' , 'highlight_off')
         }
     )
 

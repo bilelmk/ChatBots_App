@@ -29,14 +29,18 @@ export class AjouterconnaissanceComponent implements OnInit {
   ajouter(form : NgForm){
     this.cn.reponse = form.value.reponse  ;
     this.cn.question = form.value.question ;
+    this.cn.isActive = form.value.active ;
+    this.cn.admin = sessionStorage.getItem('username') ;
     this.cn.chatBots.push(form.value.bot)
 
     this.connaissanceservice.postConnaissance(this.cn).subscribe(
-        (res) => console.log(res),
-        (err) => console.log(err)
+        (res) => {
+          this.notif.showNotification('success' , 'Connaissance Ajouter Avec Succès' ,'check_circle_outline' );
+          this.dialogRef.close();
+        },(err) => {
+          this.notif.showNotification('warning' , 'Opération D\'ajout Echoué' , 'highlight_off')
+        }
     ) ;
-    this.dialogRef.close();
-
 
   }
 

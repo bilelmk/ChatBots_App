@@ -6,7 +6,6 @@ import {AjouterutilisateurComponent} from './ajouterutilisateur/ajouterutilisate
 import {ModifierutilisateurComponent} from './modifierutilisateur/modifierutilisateur.component';
 import {SupprimerutilisateurComponent} from './supprimerutilisateur/supprimerutilisateur.component';
 
-declare var $: any;
 
 @Component({
   selector: 'app-user-profile',
@@ -18,7 +17,7 @@ export class UtilisateursComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   Utilisateurs: Utilisateur[] = null ;
-  displayedColumns: string[] = ['username','matricule' ,'firstName','lastName','profil','isSuperUser','isActive','isAdminGroup','groupes' ,'action'];
+  displayedColumns: string[] = ['img','username','matricule' ,'firstName','lastName','profil','isSuperUser','isActive','isAdminGroup','groupes' ,'action'];
 
   dataSource: MatTableDataSource<Utilisateur>;
 
@@ -27,7 +26,6 @@ export class UtilisateursComponent implements OnInit {
   ngOnInit() {
     this.utilisateurservice.getUsers().subscribe(
         (res) => {
-            console.log(res);
           this.Utilisateurs = res ;
           this.dataSource =  new MatTableDataSource(this.Utilisateurs);
           this.dataSource.paginator = this.paginator;
@@ -45,7 +43,17 @@ export class UtilisateursComponent implements OnInit {
     }
   }
 
-
+    resolve(){
+        if(this.Utilisateurs == null ){
+            return true
+        }
+        else if(this.Utilisateurs.length == 0){
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
   openDeleteDialog(id : number): void {
     const dialogRef = this.dialog.open(SupprimerutilisateurComponent, {
@@ -123,6 +131,10 @@ ${grp.name}
 `
       );
      return res
+ }
+
+ getFirst(username){
+      return username.substr(0,1).toUpperCase()
  }
 
 }

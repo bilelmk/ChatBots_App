@@ -5,6 +5,7 @@ export class Chatbot {
     description : string ;
     isActive: boolean ;
     name: string ;
+    image : any ;
     knowledgeBases : Connaissance[] ;
 
 }

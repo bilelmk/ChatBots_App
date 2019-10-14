@@ -17,13 +17,14 @@ export class ModifierchatbotComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data)
+
   }
 
   modifier(){
+
     this.chatbotservice.putChatbots(this.data).subscribe(
         (res)=> {
-          this.notif.showNotification('success' , 'Chattbot Modifié Avec Succès' ,'check_circle_outline' );
+          this.notif.showNotification('success' , 'Chatbot Modifié Avec Succès' ,'check_circle_outline' );
           this.dialogRef.close();
         },
         (err) => {

@@ -30,7 +30,10 @@ export class ModifierutilisateurComponent implements OnInit {
           this.notif.showNotification('success' , 'Utilisateur Modifié Avec Succès' ,'check_circle_outline' );
           this.dialogRef.close();
         },
-        (err ) => this.notif.showNotification('warning' , 'Opération De Modification Echoué' , 'highlight_off')
+        (err ) => {
+
+            this.notif.showNotification('warning' , 'Opération De Modification Echoué' , 'highlight_off')
+        }
     ) ;
   }
 

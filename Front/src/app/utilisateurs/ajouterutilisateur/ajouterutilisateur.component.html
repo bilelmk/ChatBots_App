@@ -7,8 +7,8 @@
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline" class="noMargin-noPadding" >
         <mat-label>Nom D'utilisateur</mat-label>
-        <input ngModel name="username" matInput placeholder="username" type="text" required minlength="2" >
-        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+        <input #username="ngModel"  ngModel name="username" matInput placeholder="username" type="text" required minlength="2" >
+        <mat-hint *ngIf="!username.valid && username.touched">Entrer un nom d'utilisateur valide</mat-hint>
       </mat-form-field>
     </div>
 
@@ -16,8 +16,8 @@
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline" class="noMargin-noPadding" >
         <mat-label>Mot de Passe</mat-label>
-        <input ngModel name="password" matInput placeholder="password" type="password" required minlength="2" >
-        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+        <input #password="ngModel" ngModel name="password" matInput placeholder="password" type="password" required minlength="2" >
+        <mat-hint *ngIf="!password.valid && password.touched">Entrer un mot de Passe valide</mat-hint>
       </mat-form-field>
     </div>
 
@@ -25,8 +25,8 @@
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline" class="noMargin-noPadding" >
         <mat-label>Nom</mat-label>
-        <input ngModel name="nom" matInput placeholder="nom" type="text" required minlength="2" >
-        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+        <input #nom="ngModel" ngModel name="nom" matInput placeholder="nom" type="text" required minlength="2" >
+        <mat-hint *ngIf="!nom.valid && nom.touched">Entrer un nom valide</mat-hint>
       </mat-form-field>
     </div>
 
@@ -34,46 +34,49 @@
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline" class="noMargin-noPadding" >
         <mat-label>Prénom</mat-label>
-        <input ngModel name="prenom" matInput placeholder="prenom" type="text" required minlength="2" >
-        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+        <input #prenom="ngModel" ngModel name="prenom" matInput placeholder="prenom" type="text" required minlength="2" >
+        <mat-hint *ngIf="!prenom.valid && prenom.touched">Entrer un prénom valide</mat-hint>
       </mat-form-field>
     </div>
 
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline"  class="noMargin-noPadding">
         <mat-label>Matricule</mat-label>
-        <input  ngModel name="matricule" matInput placeholder="Matricule" type="number" required minlength="2" >
-        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
+        <input  #matricule="ngModel" ngModel name="matricule" matInput placeholder="Matricule" type="number" required  >
+        <mat-hint *ngIf="!matricule.valid && matricule.touched">Entrer un matricule valide</mat-hint>
       </mat-form-field>
     </div>
 
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline"  class="noMargin-noPadding">
         <mat-label>E-mail</mat-label>
-        <input  ngModel name="mail" matInput placeholder="mail" type="email" required minlength="2" >
-        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
+        <input ngModel #mail="ngModel" name="mail" matInput placeholder="mail" type="email" required minlength="2" >
+        <mat-hint *ngIf="!mail.valid && mail.touched">Entrer un E-mail valide</mat-hint>
       </mat-form-field>
     </div>
 
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline"  class="noMargin-noPadding">
         <mat-label>Groupe</mat-label>
-          <mat-select ngModel name="groupe">
+          <mat-select #groupe="ngModel" name="groupe" ngModel required>
             <mat-option *ngFor="let groupe of groupes" [value]="groupe" >
               {{groupe.name}}
             </mat-option>
           </mat-select>
+        <mat-hint *ngIf="!groupe.valid && groupe.touched">Ce champ est obligatoire</mat-hint>
       </mat-form-field>
     </div>
 
     <div class="form-group col-md-6 noMargin-noPadding" >
       <mat-form-field appearance="outline"  class="noMargin-noPadding">
         <mat-label>Profil</mat-label>
-        <mat-select ngModel name="profil">
+        <mat-select #profil="ngModel" name="profil" ngModel required>
           <mat-option *ngFor="let p of profils" [value]="p" >
             {{p.name}}
           </mat-option>
         </mat-select>
+        <mat-hint *ngIf="!profil.valid && profil.touched">Ce champ est obligatoire</mat-hint>
+
       </mat-form-field>
     </div>
 

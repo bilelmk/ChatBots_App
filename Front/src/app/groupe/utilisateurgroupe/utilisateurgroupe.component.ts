@@ -54,7 +54,6 @@ export class UtilisateurgroupeComponent implements OnInit {
               ),1
           )
             this.notif.showNotification('success' , 'Utilisateur Supprimé Avec Succès' ,'check_circle_outline' );
-            this.dialogRef.close();
         },
         (err) => {
             this.notif.showNotification('warning' , 'Opération De Suppression Echoué' , 'highlight_off')
@@ -88,8 +87,6 @@ export class UtilisateurgroupeComponent implements OnInit {
               }
           )
             this.notif.showNotification('success' , 'Utilisateur Ajouter Avec Succès' ,'check_circle_outline' );
-            this.dialogRef.close();
-
         },
         (err) =>{
             this.notif.showNotification('warning' , 'Opération D\'ajout Echoué' , 'highlight_off')

@@ -3,8 +3,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {GroupeService} from '../../services/groupes.service';
 import {NotifService} from '../../services/notif.service';
 
-declare var $: any;
-
 @Component({
   selector: 'app-supprimeremp',
   templateUrl: './supprimergroupe.component.html',

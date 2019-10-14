@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {ProfilService} from '../../services/profil.service';
 import {NotifService} from '../../services/notif.service';
 
-declare var $: any;
 
 @Component({
   selector: 'app-supprimeremp',

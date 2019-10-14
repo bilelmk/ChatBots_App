@@ -5,7 +5,6 @@ import {Groupe} from '../../classes/groupe';
 import {Chatbot} from '../../classes/chatbot';
 import {ChatbotsService} from '../../services/chatbots.service';
 import {NotifService} from '../../services/notif.service';
-declare var $: any;
 
 @Component({
   selector: 'app-modifieremp',
@@ -31,7 +30,7 @@ export class ModifiergroupeComponent implements OnInit {
                         return (i == chb.id)
                       })
                     }
-                )
+                );
                   this.chatbots.push(this.data.chatBot)
               }
           )

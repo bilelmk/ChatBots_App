@@ -7,7 +7,6 @@ import {ModifierchatbotComponent} from './modifierchatbot/modifierchatbot.compon
 import {AjouterchatbotComponent} from './ajouterchatbot/ajouterchatbot.component';
 import {ChatbotlearnComponent} from './chatbotlearn/chatbotlearn.component';
 import {CnlistComponent} from './cnlist/cnlist.component';
-declare var $: any;
 
 @Component({
   selector: 'app-icons',
@@ -24,6 +23,18 @@ export class ChatbotComponent implements OnInit {
     dataSource: MatTableDataSource<Chatbot>;
 
     constructor(public dialog: MatDialog, private chatbotservice: ChatbotsService) {
+    }
+
+    resolve(){
+        if(this.chatbots == null ){
+            return true
+        }
+        else if(this.chatbots.length == 0){
+            return true
+        }
+        else {
+            return false
+        }
     }
 
     ngOnInit() {

@@ -32,6 +32,13 @@
     "changeOrigin": false,
     "secure": true,
     "logLevel": "debug"
+  },
+
+  "/notif": {
+    "target": "http://localhost:8181",
+    "changeOrigin": false,
+    "secure": true,
+    "logLevel": "debug"
   }
 
 }

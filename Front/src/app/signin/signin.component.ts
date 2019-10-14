@@ -30,6 +30,10 @@ export class SigninComponent implements OnInit {
               sessionStorage.setItem('id', res.id);
               sessionStorage.setItem('username', res.username);
 
+              sessionStorage.setItem('admin', res.isSuperUser);
+              sessionStorage.setItem('grp', res.isAdminGroup);
+
+
               this.notif.showNotification('success' , 'Connexion . . .' ,'check_circle_outline')
 
           }

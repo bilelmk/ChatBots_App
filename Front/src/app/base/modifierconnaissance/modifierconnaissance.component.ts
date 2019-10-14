@@ -20,11 +20,16 @@ export class ModifierconnaissanceComponent implements OnInit {
   }
 
   modifier(){
+
     this.cnservice.putConnaissance(this.data).subscribe(
-        (res) => {
+        (res)=> {
+          this.notif.showNotification('success' , 'Connaissance Modifié Avec Succès' ,'check_circle_outline' );
           this.dialogRef.close();
+        },
+        (err) => {
+          this.notif.showNotification('warning' , 'Opération De Modification Echoué' , 'highlight_off')
         }
-    );
+    ) ;
 
   }
 

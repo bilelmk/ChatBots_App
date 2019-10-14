@@ -6,8 +6,6 @@ import {Permission} from '../../classes/permission';
 import {ProfilService} from '../../services/profil.service';
 import {NotifService} from '../../services/notif.service';
 
-declare var $: any;
-
 @Component({
   selector: 'app-ajouteremp',
   templateUrl: './ajouterprofil.component.html',
@@ -49,6 +47,7 @@ export class AjouterprofilComponent implements OnInit {
     let profil = new Profil ;
     profil.name = form.value.nom ;
     profil.description = form.value.description ;
+    profil.isActive = form.value.active ;
 
     /******* User ********/
     if(this.userAdd){

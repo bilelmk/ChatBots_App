@@ -3,7 +3,6 @@ import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/mat
 import { AjouterprofilComponent } from './ajouterprofil/ajouterprofil.component';
 import { SupprimerprofilComponent } from './supprimerprofil/supprimerprofil.component';
 import { ModifierprofilComponent } from './modifierprofil/modifierprofil.component';
-import {Utilisateur} from '../classes/utilisateur';
 import {Profil} from '../classes/profil';
 import {ProfilService} from '../services/profil.service';
 
@@ -23,6 +22,18 @@ export class ProfilsComponent implements OnInit {
   dataSource: MatTableDataSource<Profil>;
 
   constructor(public dialog: MatDialog , private  profilservice : ProfilService) { }
+
+    resolve(){
+        if(this.profils == null ){
+            return true
+        }
+        else if(this.profils.length == 0){
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
   ngOnInit() {
     this.profilservice.getProfils().subscribe(

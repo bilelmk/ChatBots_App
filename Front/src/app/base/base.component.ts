@@ -5,8 +5,6 @@ import {Connaissance} from '../classes/connaissance';
 import {ConnaissanceService} from '../services/connaissance.service';
 import {ModifierconnaissanceComponent} from './modifierconnaissance/modifierconnaissance.component';
 import {SupprimerconnaissanceComponent} from './supprimerconnaissance/supprimerconnaissance.component';
-import {Utilisateur} from '../classes/utilisateur';
-import {Chatbot} from '../classes/chatbot';
 
 @Component({
   selector: 'app-professor-profile',
@@ -18,7 +16,7 @@ export class BaseComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   connaissances: Connaissance[] = null ;
-  displayedColumns: string[] = ['id','question','reponse','chatbots','actions'];
+  displayedColumns: string[] = ['question','reponse','chatbots','active','admin','actions'];
 
    dataSource: MatTableDataSource<Connaissance>;
 
@@ -35,6 +33,18 @@ export class BaseComponent implements OnInit {
     )
 
   }
+
+    resolve(){
+        if(this.connaissances == null ){
+            return true
+        }
+        else if(this.connaissances.length == 0){
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

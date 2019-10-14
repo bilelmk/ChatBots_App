@@ -31,14 +31,13 @@
                         <br>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div *ngIf="resolve()">
+                            <p style="text-align: center">Il y'a aucune Caonnaissance dans la base</p>
+                        </div>
+
+                        <div class="table-responsive" *ngIf="!resolve()">
                             <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-hover table" matSort>
                                 <!--isActive  isAdminGroup  groupes-->
-
-                                <ng-container matColumnDef="id">
-                                    <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
-                                    <td  mat-cell *matCellDef="let element"> {{element.id}} </td>
-                                </ng-container>
 
                                 <ng-container matColumnDef="question">
                                     <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Question </th>
@@ -58,6 +57,20 @@
                                         <pre>{{element.chatBots[0] ? getBotName(element) :'Aucun ChatBot'}}</pre>
                                     </td>
                                 </ng-container>
+
+
+                                <ng-container matColumnDef="admin">
+                                    <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Admin</th>
+                                    <td  mat-cell *matCellDef="let element"> {{element.admin}} </td>
+                                </ng-container>
+
+
+
+                                <ng-container matColumnDef="active">
+                                    <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Active</th>
+                                    <td  mat-cell *matCellDef="let element"> {{element.isActive}} </td>
+                                </ng-container>
+
 
                                 <!-- Symbol Column -->
                                 <ng-container matColumnDef="actions" >

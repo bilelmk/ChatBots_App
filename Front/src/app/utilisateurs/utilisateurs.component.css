@@ -52,3 +52,12 @@ table {
     color:#e8f1f5;
 
 }
+
+.first-lettre{
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #ee5f48;
+    color: white;
+    border-radius: 30px;
+    padding:  10px 18px 10px 18px;
+}

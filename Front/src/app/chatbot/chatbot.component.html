@@ -31,9 +31,12 @@
                         <br>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div *ngIf="resolve()">
+                            <p style="text-align: center">Il y'a aucun Chatbot</p>
+                        </div>
+
+                        <div class="table-responsive" *ngIf="!resolve()">
                             <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-hover table" matSort>
-                                <!--isActive  isAdminGroup  groupes-->
 
                                 <ng-container matColumnDef="name">
                                     <th class="text-center title" mat-header-cell *matHeaderCellDef mat-sort-header> Nom du Chatbot</th>

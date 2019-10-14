@@ -43,7 +43,11 @@ export class AjoutergroupeComponent implements OnInit {
     this.groupe.name = form.value.nom;
     this.groupe.description = form.value.description  ;
     this.groupe.isActive =  form.value.active  ;
-    this.groupe.chatBot = form.value.bot ;
+    if(form.value.bot){
+       this.groupe.chatBot = form.value.bot ;
+    }else{
+       this.groupe.chatBot = null ;
+    }
 
 
     this.groupeservice.postGroupe(this.groupe).subscribe(
@@ -51,6 +55,7 @@ export class AjoutergroupeComponent implements OnInit {
             this.notif.showNotification('success' , 'Groupe Ajouter Avec Succès' ,'check_circle_outline' );
             this.dialogRef.close();
         },(err) => {
+            console.log(err)
             this.notif.showNotification('warning' , 'Opération D\'ajout Echoué' , 'highlight_off')
         }
     ) ;

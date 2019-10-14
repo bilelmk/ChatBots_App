@@ -24,7 +24,6 @@ export class UtilisateurService {
   }
 
   putUser(user : Utilisateur) {
-    console.log(user);
     return this.http.put('user' , user );
   }
 

@@ -17,7 +17,7 @@ export class NotifService {
 
     }, {
       type: color,
-      timer: 2000,
+      timer: 1000,
       placement: {
         from: 'bottom',
         align: 'center'

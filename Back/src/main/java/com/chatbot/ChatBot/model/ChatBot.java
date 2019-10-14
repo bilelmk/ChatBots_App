@@ -11,6 +11,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,9 @@ public class ChatBot {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("isActive")
     private boolean isActive;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Blob image;
 
     @OneToOne(fetch=FetchType.EAGER,mappedBy = "chatBot")
     @JsonIgnoreProperties(value = {"chatBot"} ,allowSetters = true)

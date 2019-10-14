@@ -7,17 +7,17 @@
     <div class="form-group col-md-12 noMargin-noPadding" >
       <mat-form-field appearance="outline"  class="noMargin-noPadding">
         <mat-label>Nom Du Profil</mat-label>
-        <input  [(ngModel)]="data.name" name="nom" matInput placeholder="Nom Du Groupe" type="text" required minlength="2" >
-        <!--<mat-hint *ngIf="!Nom.valid && Nom.touched">nom lazem akther men 2</mat-hint>-->
+        <input #nom="ngModel" [(ngModel)]="data.name" name="nom" matInput placeholder="Nom Du Groupe" type="text" required minlength="2" >
+        <mat-hint *ngIf="!nom.valid && nom.touched">Entrer un nom valide</mat-hint>
       </mat-form-field>
     </div>
 
     <div class="form-group col-md-12 noMargin-noPadding" >
       <mat-form-field appearance="outline" class="noMargin-noPadding" >
         <mat-label>Description</mat-label>
-        <textarea [(ngModel)]="data.description" name="description" matInput placeholder="Description" type="text" required minlength="2" >
+        <textarea  #description="ngModel" [(ngModel)]="data.description" name="description" matInput placeholder="Description" type="text" required minlength="2" >
         </textarea>
-        <!--<mat-hint *ngIf="!Prenom.valid && Prenom.touched">hhhhhhh</mat-hint>-->
+        <mat-hint *ngIf="!description.valid && description.touched">Entrer une description valide</mat-hint>
       </mat-form-field>
     </div>
 
@@ -67,6 +67,13 @@
 
 
     </table>
+
+    <div class="col-md-6 noMargin-noPadding">
+      <mat-slide-toggle color="warn" [(ngModel)]="data.isActive" name="active">
+        Active
+      </mat-slide-toggle>
+    </div>
+
     <div class="col-md-6 noMargin-noPadding">
       <button style="width: 100%" mat-raised-button class="Btn-blue" (click)="modifier()" [disabled]="!form.valid" >Appliquer Les Modifications</button>
     </div>

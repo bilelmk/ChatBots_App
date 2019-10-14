@@ -31,7 +31,11 @@
                         <br>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div *ngIf="resolve()">
+                            <p style="text-align: center">Il y'a aucun Profil</p>
+                        </div>
+
+                        <div class="table-responsive" *ngIf="!resolve()">
                             <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-hover table" matSort>
                                 <!--isActive  isAdminGroup  groupes-->
 

@@ -6,7 +6,6 @@ import {SupprimergroupeComponent} from './supprimergroupe/supprimergroupe.compon
 import {AjoutergroupeComponent} from './ajoutergroupe/ajoutergroupe.component';
 import {ModifiergroupeComponent} from './modifiergroupe/modifiergroupe.component';
 import {UtilisateurgroupeComponent} from './utilisateurgroupe/utilisateurgroupe.component';
-declare var $: any;
 
 @Component({
   selector: 'app-typography',
@@ -24,6 +23,18 @@ export class GroupeComponent implements OnInit   {
   displayedColumns: string[] = ['name','description' ,'isActive' ,'chatbot' , 'action'];
 
   dataSource: MatTableDataSource<Groupe>;
+
+    resolve(){
+        if(this.groupes == null ){
+            return true
+        }
+        else if(this.groupes.length == 0){
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
 
   ngOnInit() {
@@ -117,4 +128,7 @@ export class GroupeComponent implements OnInit   {
   }
 
 
-  }
+
+
+
+}

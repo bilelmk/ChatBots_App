@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Groupe} from '../classes/groupe';
+import {SansrepService} from '../services/sansrep.service';
+import {SansReponse} from '../classes/SansReponse';
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -7,36 +11,72 @@ declare var $: any;
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor() { }
-  showNotification(from, align){
-      const type = ['','info','success','warning','danger'];
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
 
-      const color = Math.floor((Math.random() * 4) + 1);
+    constructor(private  sansrepservice : SansrepService ,public dialog: MatDialog) { }
 
-      $.notify({
-          icon: "notifications",
-          message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+    questions: SansReponse[] = null ;
+    displayedColumns: string[] = ['question' ,'name', 'action'];
 
-      },{
-          type: type[color],
-          timer: 4000,
-          placement: {
-              from: from,
-              align: align
-          },
-          template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-            '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-chatbot">close</i></button>' +
-            '<i class="material-chatbot" data-notify="icon">notifications</i> ' +
-            '<span data-notify="title">{1}</span> ' +
-            '<span data-notify="message">{2}</span>' +
-            '<div class="progress" data-notify="progressbar">' +
-              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-            '</div>' +
-            '<a href="{3}" target="{4}" data-notify="url"></a>' +
-          '</div>'
-      });
-  }
-  ngOnInit() {
-  }
+    dataSource: MatTableDataSource<SansReponse>;
+
+    resolve(){
+        if(this.questions == null ){
+            return true
+        }
+        else if(this.questions.length == 0){
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+
+    ngOnInit() {
+        this.sansrepservice.getSansRepQuestions().subscribe(
+            (res) => {
+                this.questions = res;
+                this.dataSource =  new MatTableDataSource(this.questions);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+            }
+        )
+
+    }
+
+    applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    }
+
+
+
+    supprimer(id){
+        this.sansrepservice.DeleteSansRepQuestion(id).subscribe(
+            res => {
+                this.sansrepservice.getSansRepQuestions().subscribe(
+                    (res) => {
+                        this.questions = res;
+                        this.dataSource =  new MatTableDataSource(this.questions);
+                        this.dataSource.paginator = this.paginator;
+                        this.dataSource.sort = this.sort;
+                    }
+                )
+            },
+            err => console.log(err )
+        )
+    }
+
+
+
+
+
+
+
 
 }
