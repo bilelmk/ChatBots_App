@@ -51,6 +51,13 @@
         </ion-col>
       </ion-row>
 
+      <ion-row style="margin-bottom: 10px" >
+        <ion-col col-4>
+          <ion-label>Active</ion-label>
+          <ion-checkbox color="dark" name="active" ngModel></ion-checkbox>
+        </ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col col-12>
           <button [disabled]="!form.valid" class="login-btn" color="three" block  ion-button type="submit">Ajouter</button>

@@ -1,0 +1,53 @@
+<ion-header >
+  <ion-navbar >
+    <ion-row  align-items-center>
+      <ion-col col-2>
+        <button ion-button icon-only menuToggle>
+          <ion-icon class="nav-icon" name="menu"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8>
+        <ion-title>Notifications</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding style="background-color: #e9e2d0;">
+
+  <ion-card class="compte-card" *ngIf="resolve()">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <p class="para1" >Il y'a aucun question</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <div *ngFor="let sp of sansreps">
+    <ion-card class="compte-card" >
+      <ion-grid>
+
+        <ion-row  >
+          <ion-col col-6>
+            <p class="para1">Question :</p>
+            <p class="para1">Admin :</p>
+
+          </ion-col>
+
+          <ion-col col-6>
+            <p class="para">{{sp.question}}</p>
+            <p class="para">{{sp.name}}</p>
+          </ion-col>
+        </ion-row>
+
+
+
+      </ion-grid>
+    </ion-card>
+  </div>
+
+</ion-content>

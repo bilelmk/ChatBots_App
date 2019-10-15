@@ -18,8 +18,9 @@
   </ion-navbar>
 </ion-header>
 
-<div  padding>
-  <ion-grid style="margin-top: 70px" *ngIf="admin">
+<ion-content  padding style=" background-color: #e9e2d0;">
+
+  <ion-grid  *ngIf="admin">
     <ion-row>
 
       <ion-col  col-4 offset-1>
@@ -73,12 +74,23 @@
       </ion-col>
     </ion-row>
 
+
+    <ion-row>
+
+      <ion-col  col-4 offset-4>
+        <a  [navPush]="notif">
+          <img src="../../assets/imgs/notif.png">
+        </a>
+        <p class="menu-text" text-center>Notifications</p>
+      </ion-col>
+
+    </ion-row>
   </ion-grid>
 
 
 
 
-  <ion-grid style="margin-top: 70px" *ngIf="grp">
+  <ion-grid style="margin-top: 70px" *ngIf="grp && !admin">
     <ion-row>
 
       <ion-col  col-4 offset-1>
@@ -125,4 +137,4 @@
   </ion-grid>
 
 
-</div>
+</ion-content>

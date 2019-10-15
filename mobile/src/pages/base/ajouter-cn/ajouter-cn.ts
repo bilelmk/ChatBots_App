@@ -4,6 +4,8 @@ import {ChatbotProvider} from "../../../providers/chatbot/chatbot";
 import {Chatbot} from "../../../classes/chatbot";
 import {Connaissance} from "../../../classes/connaissance";
 import {BaseProvider} from "../../../providers/base/base";
+import {Utilisateur} from "../../../classes/utilisateur";
+import {Storage} from "@ionic/storage";
 
 
 /**
@@ -22,9 +24,10 @@ export class AjouterCnPage implements OnInit{
 
   bots : Chatbot[] = null ;
   cn = new Connaissance ;
+  user : Utilisateur ;
 
   constructor(public navCtrl: NavController, public navParams: NavParams ,private loadingCtrl :LoadingController ,
-              private viewCtrl : ViewController, private botprovider : ChatbotProvider ,
+              private viewCtrl : ViewController, private botprovider : ChatbotProvider ,private storage : Storage,
               private toastCtrl : ToastController , private cnprovider : BaseProvider) {
   }
 
@@ -33,6 +36,12 @@ export class AjouterCnPage implements OnInit{
       content: " Loading . . . . "
     });
     loading.present();
+
+    this.storage.get('user').then(
+      (resp) => {
+        this.user = resp ;
+      }) ;
+
 
     this.botprovider.getChatbots().subscribe(
       (res) =>{
@@ -57,6 +66,8 @@ export class AjouterCnPage implements OnInit{
 
     this.cn.question = form.value.question ;
     this.cn.reponse =form.value.reponse ;
+    this.cn.isActive = form.value.active ;
+    this.cn.admin = this.user.username ;
     this.cn.chatBots.push(form.value.chatbot) ;
 
     this.cnprovider.postConnaissance(this.cn).subscribe(

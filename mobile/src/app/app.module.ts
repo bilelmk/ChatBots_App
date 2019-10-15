@@ -37,6 +37,8 @@ import {UserGroupePage} from "../pages/groupes/user-groupe/user-groupe";
 import {CommunicationPage} from "../pages/communication/communication";
 import {MonComptePage} from "../pages/mon-compte/mon-compte";
 import { PermissionProvider } from '../providers/permission/permission';
+import { SansreponseProvider } from '../providers/sansreponse/sansreponse';
+import { SansreponsePage } from "../pages/sansreponse/sansreponse";
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { PermissionProvider } from '../providers/permission/permission';
     BotCnPage,
     UserGroupePage,
     CommunicationPage,
-    MonComptePage
+    MonComptePage,
+    SansreponsePage
 
   ],
   imports: [
@@ -98,7 +101,8 @@ import { PermissionProvider } from '../providers/permission/permission';
     BotCnPage,
     UserGroupePage,
     CommunicationPage,
-    MonComptePage
+    MonComptePage,
+    SansreponsePage
 
   ],
   providers: [
@@ -111,6 +115,7 @@ import { PermissionProvider } from '../providers/permission/permission';
     ChatbotProvider,
     ProfilProvider,
     PermissionProvider,
+    SansreponseProvider,
 
   ]
 })

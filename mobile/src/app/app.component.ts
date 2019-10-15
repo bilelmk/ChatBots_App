@@ -15,8 +15,8 @@ import {BasePage} from "../pages/base/base";
 import {CommunicationPage} from "../pages/communication/communication";
 import {MonComptePage} from "../pages/mon-compte/mon-compte";
 import {Utilisateur} from "../classes/utilisateur";
-import {UtilisateurProvider} from "../providers/utilisateur/utilisateur";
 import {PermissionProvider} from "../providers/permission/permission";
+import {SansreponsePage} from "../pages/sansreponse/sansreponse";
 
 
 
@@ -37,6 +37,7 @@ export class MyApp {
   Base = BasePage;
   com = CommunicationPage
   Home = HomePage ;
+  notif = SansreponsePage;
 
   constructor(platform: Platform, statusBar: StatusBar,
               splashScreen: SplashScreen , private loadingCtrl : LoadingController ,

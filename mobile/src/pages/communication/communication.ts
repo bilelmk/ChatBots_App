@@ -5,6 +5,8 @@ import {Groupe} from "../../classes/groupe";
 import {Chatbot} from "../../classes/chatbot";
 import {UtilisateurProvider} from "../../providers/utilisateur/utilisateur";
 import { Storage } from "@ionic/storage" ;
+import {SansReponse} from "../../classes/SansReponse";
+import {SansreponseProvider} from "../../providers/sansreponse/sansreponse";
 
 /**
  * Generated class for the CommunicationPage page.
@@ -26,7 +28,8 @@ export class CommunicationPage implements  OnInit{
   selectedBot: Chatbot = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , private utilisateurprovider : UtilisateurProvider ,
-              private storage : Storage , private loadingCtrl : LoadingController , private toastCtrl : ToastController) {
+              private storage : Storage , private loadingCtrl : LoadingController , private toastCtrl : ToastController ,
+              private sansrepprovider : SansreponseProvider) {
   }
 
   selectMsg() :string{
@@ -101,7 +104,7 @@ export class CommunicationPage implements  OnInit{
 
       let content = this.selectedBot.knowledgeBases.find(
         (cn) => {
-          return cn.question.toLowerCase().trim() == input.value.toLowerCase().trim()
+          return (cn.question.toLowerCase().trim() == input.value.toLowerCase().trim() && cn.isActive)
         }
       ) ;
       if(content == undefined){
@@ -109,7 +112,13 @@ export class CommunicationPage implements  OnInit{
           content : 'Pas De Reponse',
           sender : "you"
         };
-
+        let SansRep = new SansReponse() ;
+        SansRep.question = input.value ;
+        SansRep.name = this.selectedBot.name ;
+        this.sansrepprovider.postSansRepQuestion(SansRep).subscribe(
+          res => console.log(res) ,
+          err => console.log (err)
+        )
         this.discution.push(reponse) ;
       }else{
         let reponse ={

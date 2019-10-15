@@ -80,6 +80,7 @@ export class AccueilComponent implements OnInit {
                   res => console.log(res) ,
                   err => console.log (err)
               )
+
               this.eventEmitter("Pas de Reponse", "shop", "cart", "click", 10);
               this.discution.push(reponse) ;
           }else{

@@ -65,6 +65,13 @@
         Bases De Connaissance
       </button>
 
+      <button *ngIf="isAdmin()" ion-item style="background-color:  rgba(249,180,50,0.05);
+                              font-weight: bold; font-size: 90%;color:  #ffe8d5"
+              menuClose (click)="openPage(notif)">
+        <ion-icon item-left name="notifications"></ion-icon>
+        Notifications
+      </button>
+
       <button  ion-item style="background-color:  rgba(249,180,50,0.05);
                               font-weight: bold; font-size: 90%;color:  #ffe8d5"
                               menuClose (click)="logOut()">

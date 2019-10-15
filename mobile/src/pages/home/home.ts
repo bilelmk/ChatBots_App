@@ -9,6 +9,7 @@ import {ChatbotsPage} from "../chatbots/chatbots";
 import {BasePage} from "../base/base";
 import {CommunicationPage} from "../communication/communication";
 import {PermissionProvider} from "../../providers/permission/permission";
+import {SansreponsePage} from "../sansreponse/sansreponse";
 
 @Component({
   selector: 'page-home',
@@ -25,6 +26,7 @@ export class HomePage implements OnInit{
   ChatBot = ChatbotsPage;
   Base = BasePage;
   Communication = CommunicationPage ;
+  notif = SansreponsePage
 
   admin :boolean ;
   grp : boolean ;
